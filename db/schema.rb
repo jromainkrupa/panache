@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2021_07_23_123750) do
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.string "image_url"
+    t.string "website"
     t.string "city"
     t.string "postal_code"
     t.bigint "user_id", null: false
@@ -44,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_07_23_123750) do
     t.datetime "end_date"
     t.string "name"
     t.bigint "sport_id", null: false
-    t.bigint "club_id", null: false
+    t.bigint "club_id"
     t.bigint "user_id", null: false
     t.string "event_website"
     t.datetime "created_at", precision: 6, null: false
@@ -71,9 +73,9 @@ ActiveRecord::Schema.define(version: 2021_07_23_123750) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-    t.boolean "is_admin"
-    t.boolean "is_club_owner"
-    t.boolean "is_event_admin"
+    t.boolean "is_admin", default: false
+    t.boolean "is_club_admin", default: false
+    t.boolean "is_event_admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
