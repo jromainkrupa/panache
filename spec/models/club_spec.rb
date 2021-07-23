@@ -9,7 +9,7 @@ describe Club, type: :model do
   end
 
   context 'Validations' do
-    it "is valid with a first name, last name, email, phone_number is_admin, is_club_owner, is_event_admin" do
+    it "is valid with a name, address, city, postal_code, image_url, website, mail" do
       club_admin = build(:user, is_club_admin: true)
       club = Club.create(
         name: "Tennis club de genas",
