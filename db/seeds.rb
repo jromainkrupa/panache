@@ -10,6 +10,8 @@
 
 p "model destruction..."
 Event.destroy_all
+ClubSport.destroy_all
+Club.destroy_all
 Sport.destroy_all
 User.destroy_all
 p "done!"
@@ -86,3 +88,34 @@ end
 p "Events created : #{Event.count}"
 
 
+clubs = [
+  {
+    name: "tennis club",
+    address: "1-57 avenue de Bohlen",
+    postal_code: "69120",
+    city: "Genas",
+    website: "toto.com",
+    admin: frank,
+    image_url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.obstacle-mag.com%2F2018%2F12%2F01%2Fcolor-obstacle-rush-2019%2F&psig=AOvVaw1y91huzYBQBwcMzr3irGKd&ust=1627400114700000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMi38YCIgfICFQAAAAAdAAAAABAD"
+  },
+  {
+    name: "football club",
+    address: "1-57 avenue de Bohlen",
+    postal_code: "69120",
+    city: "Genas",
+    website: "toto.com",
+    admin: frank,
+    image_url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.obstacle-mag.com%2F2018%2F12%2F01%2Fcolor-obstacle-rush-2019%2F&psig=AOvVaw1y91huzYBQBwcMzr3irGKd&ust=1627400114700000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCMi38YCIgfICFQAAAAAdAAAAABAD"
+  },
+
+]
+
+clubs.each do |club|
+  Club.create!(club)
+end
+p "Clubs created : #{Club.count}"
+
+Club.all.each do |club|
+  ClubSport.create(club: club, sport: Sport.first)
+end
+p "ClubSports created : #{ClubSport.count}"

@@ -1,9 +1,12 @@
 class ClubsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show, :index]
   before_action :set_club, only: %i[ show edit update destroy ]
+  skip_after_action :verify_policy_scoped, only: [:index]
 
   # GET /clubs or /clubs.json
   def index
-    @clubs = Club.all
+    @pagy, @clubs = pagy(Club.sort_by_params(params[:sort], sort_direction))
+
   end
 
   # GET /clubs/1 or /clubs/1.json
