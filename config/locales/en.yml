@@ -32,42 +32,7 @@
 # https://mikerogers.io/2016/01/10/i18n-rails-internationalisation-i18n-cheatsheet.html
 
 en:
-  activerecord:
-    models:
-      user: "Utilisateur"
-    attributes:
-      user:
-        name: "nom"
-        password: "mot de passe"
-  date:
-    month_names:
-      [
-        Javier,
-        Février,
-        Mars,
-        Avril,
-        Mai,
-        Juin,
-        Juillet,
-        Août,
-        Septembre,
-        Octobre,
-        Novembre,
-        Decembre,
-      ]
-  investor: "investisseur"
-  footer:
-    discuss: "Envie de discuter?"
-    send-email: "Envoyez-nous un petit mail 💌"
-  free: "Gratuit"
-  step: "Etape %{number}"
-  know-more: "En savoir plus"
-  sign_up: "S'inscrire"
-  sign_in: "Se connecter"
-  upload: "Upload Avatar"
-  how-does-it-works: "Comment ça marche"
-  seen: "vu"
-  with: "avec"
+  hello: "Hello world"
 
   something_went_wrong: "Something went wrong"
   create_an_account_first: "Please create an account first."

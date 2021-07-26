@@ -30,6 +30,7 @@ a {
 
 ul {
   @apply list-disc list-inside;
+  list-style-type: none;
 }
 
 ol {
