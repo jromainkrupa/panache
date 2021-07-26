@@ -1,4 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="container mx-auto">
+  <div class="h-64 h4 bg-cover bg-center flex items-center justify-center text-white shadow rounded-xl" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @club.image_url %>)">
+  </div>
+  <ul>
+    <li class="h2"><%= @club.name %></li>
+    <hr class="my-4 border-2">
+    <li class="font-bold">address: <%= @club.address %></li>
+    <li class="font-bold">city: <%= @club.city %></li>
+    <li class="font-bold">code postal: <%= @club.postal_code %></li>
+    <li> ou </li>
+    <li class="font-bold">addresse complète: <%= humanized_address(@club) %></li>
+    <hr class="my-4 border-2">
+    <li>organisateur: <%= @club.admin.first_name %></li>
+    <hr class="my-4 border-2">
+    <li>site web: <%= @club.website %></li>
+    <li>sports: <%= @club.sports.map { |sport| sport.name } %></li>
+    <li>events: <%= @club.events.map { |event| event.name } %></li>
 
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
+  </ul>
+  <%= link_to 'Edit', edit_club_path(@club) %> |
+  <%= link_to 'Back', clubs_path %>
+</div>
+

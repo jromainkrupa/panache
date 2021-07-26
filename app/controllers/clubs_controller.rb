@@ -6,11 +6,11 @@ class ClubsController < ApplicationController
   # GET /clubs or /clubs.json
   def index
     @pagy, @clubs = pagy(Club.sort_by_params(params[:sort], sort_direction))
-
   end
 
   # GET /clubs/1 or /clubs/1.json
   def show
+    authorize @club
   end
 
   # GET /clubs/new
