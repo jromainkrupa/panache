@@ -12,8 +12,11 @@
       <table class="table">
         <thead>
           <tr>
-            <th class="p-3 uppercase text-left text-xs"><%= sortable @events, :start_date, "Title", class: "text-gray-700" %></th>
-            <th class="p-3 uppercase text-left text-xs"><%= sortable @events, :sport, "Url", class: "text-gray-700" %></th>
+            <th class="p-3 uppercase text-left text-xs"><%= sortable @events, :name, "name", class: "text-gray-700" %></th>
+            <th class="p-3 uppercase text-left text-xs"><%= sortable @events, :start_date, "start_date", class: "text-gray-700" %></th>
+            <th class="p-3 uppercase text-left text-xs"><%= sortable @events, :end_date, "end_date", class: "text-gray-700" %></th>
+            <th class="p-3 uppercase text-left text-xs"><%= sortable @events, :sport, "sport", class: "text-gray-700" %></th>
+            <th class="p-3 uppercase text-left text-xs"><%= sortable @events, :city, "city", class: "text-gray-700" %></th>
             <th class="p-3 uppercase text-left text-xs text-gray-700 w-20"><%= t("shared.scaffold.actions") %></th>
           </tr>
         </thead>
@@ -21,7 +24,11 @@
         <tbody>
         <% @events.each do |event| %>
           <tr class="group border-t border-gray-400 hover:bg-gray-100">
-                      <td class="p-3"><%= event.name %></td>
+            <td class="p-3"><%= event.name %></td>
+            <td class="p-3"><%= event.start_date %></td>
+            <td class="p-3"><%= event.end_date %></td>
+            <td class="p-3"><%= event.sport.name %></td>
+            <td class="p-3"><%= event.city %></td>
           
             <td>
               <%= link_to t("shared.scaffold.view"), event, class: "btn btn-link no-underline" %>
