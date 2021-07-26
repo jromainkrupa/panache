@@ -1,0 +1,101 @@
+.form-group {
+  @apply mb-6;
+}
+
+/* non-input elements (like the Stripe card form) can be styled to look like an input */
+div.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ff0000;
+  border-width: 1px;
+  padding-top: 2rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  @apply mt-1 block w-full rounded-md border-secondary-700 shadow-sm focus:border-secondary-500 focus:ring focus:ring-secondary-500 focus:ring-opacity-50;
+}
+
+.form-control {
+  @apply p-2 mt-1 block w-full rounded-md border border-gray-400 shadow-sm focus:border-primary-300 focus:ring focus:ring-secondary-500 focus:ring-opacity-50;
+
+  &.error {
+    @apply border-red-300;
+  }
+}
+
+label,
+.label {
+  @apply block text-sm font-medium leading-5 text-secondary-600;
+}
+
+.form-hint {
+  @apply text-gray-600 text-xs italic;
+
+  &.error {
+    @apply text-red-500 text-sm italic leading-normal mt-1;
+  }
+}
+
+.select {
+  @apply block w-full p-2 mt-1 rounded-md border border-gray-400 shadow-sm focus:border-secondary-300 focus:ring focus:ring-secondary-200 focus:ring-opacity-50;
+}
+
+.caret {
+  @apply pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-800;
+}
+
+form.inline {
+  .form-group {
+    @apply flex justify-start items-center;
+  }
+
+  .form-group .input {
+    @apply flex-1;
+  }
+
+  .form-group .label {
+    @apply w-1/4;
+  }
+}
+
+// Fix flatpickr
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  display: inline-block;
+}
+
+.form-checkbox {
+  @apply rounded border-gray-300 text-secondary-600 shadow-sm focus:border-secondary-300 focus:ring focus:ring-secondary-200 focus:ring-opacity-50;
+
+  &[disabled] {
+    @apply bg-gray-200;
+  }
+}
+
+.input-file {
+  height: auto;
+  z-index: 2;
+  cursor: pointer;
+
+  @apply opacity-0 text-white inline-block pl-1 pr-0 py-3 px-3 overflow-hidden absolute border-none;
+
+  + label {
+    @apply inline-flex text-white text-sm font-bold text-center px-4 py-0 rounded no-underline items-center justify-between cursor-pointer;
+
+    height: 40px;
+    line-height: 40px;
+    transition: ease 0.3s background, ease 0.3s transform, ease 0.2s color;
+
+    @extend .btn;
+    @extend .btn-tertiary;
+    //@extend .outline;
+
+    &:focus {
+      outline: 1px dotted red;
+      outline: -webkit-focus-ring-color auto 5px;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.font-display {
+  font-size: 4rem; // 64px
+
+  @apply leading-tight tracking-tight;
+}
+
+h1,
+.h1 {
+  font-size: 2.5rem; // 48px
+  font-weight: 600;
+  line-height: 3rem;
+
+  @apply leading-relaxed tracking-tight;
+}
+
+h2,
+.h2 {
+  font-size: 2.25rem; // 36px
+  font-weight: 600;
+  line-height: 2.5rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.5rem; // 24px
+  font-weight: 600;
+  line-height: 2.25rem;
+
+  @apply leading-normal;
+}
+
+h4,
+.h4 {
+  font-size: 1.25rem; // 18px
+  font-weight: 600;
+
+  @apply leading-normal;
+}
+
+h5,
+.h5 {
+  @apply font-bold uppercase tracking-wide text-sm; // .875rem
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #4f4f4f;
+}
+
+.link {
+  @apply text-primary-500;
+
+  &:hover,
+  &:focus {
+    @apply text-primary-600;
+  }
+}
