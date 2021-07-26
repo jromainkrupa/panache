@@ -11,3 +11,5 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import "stylesheets/application"; // 👈 add this little boy
