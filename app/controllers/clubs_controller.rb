@@ -45,6 +45,4 @@ class ClubsController < ApplicationController
   def club_params
     params.require(:club).permit(:name, :address, :city, :postal_code, :website, :image_url)
   end
-
-end
 end
