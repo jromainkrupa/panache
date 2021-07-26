@@ -1,0 +1,402 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+#
+# https://mikerogers.io/2016/01/10/i18n-rails-internationalisation-i18n-cheatsheet.html
+
+fr:
+  activerecord:
+    models:
+      user: "Utilisateur"
+    attributes:
+      user:
+        name: "nom"
+        password: "mot de passe"
+  date:
+    month_names:
+      [
+        Javier,
+        Février,
+        Mars,
+        Avril,
+        Mai,
+        Juin,
+        Juillet,
+        Août,
+        Septembre,
+        Octobre,
+        Novembre,
+        Decembre,
+      ]
+  investor: "investisseur"
+  footer:
+    discuss: "Envie de discuter?"
+    send-email: "Envoyez-nous un petit mail 💌"
+  free: "Gratuit"
+  step: "Etape %{number}"
+  know-more: "En savoir plus"
+  sign_up: "S'inscrire"
+  sign_in: "Se connecter"
+  upload: "Upload Avatar"
+  how-does-it-works: "Comment ça marche"
+  seen: "vu"
+  with: "avec"
+
+  something_went_wrong: "Un incident est survenu"
+  create_an_account_first: "Merci de créer un compte d’abord."
+  must_be_an_admin: "Vous devez être administrateur pour faire ça."
+  are_you_sure: "Êtes vous sûr ?"
+  delete: "Supprimer"
+  back: "Retour"
+
+  account_invitations_mailer:
+    invite:
+      subject: "%{inviter} vous a invité sur %{account}"
+      header_html: "%{inviter} vous a invité à collaborer sur <strong>%{account}</strong>"
+      description_html: "Vous pouvez %{link} cette invitation."
+      accept_or_decline: "accepter ou refuser"
+      view_invitation: "Voir l’invitation"
+
+  account_invitations:
+    invite_user: "Inviter l’utilisateur"
+    authenticate: "Merci de vous connecter ou de créer un compte pour accepter cette invitation"
+    not_found: "Oups, nous n’avons pas pu trouver cette invitation. Demandez à l’administrateur du compte une nouvelle invitation."
+    show:
+      invited_you_to_join_html: "<strong>%{inviter}</strong> vous a invité à rejoindre <strong>%{account}</strong>"
+      accept: "Accepter l’invitation"
+      decline: "Décliner"
+
+  account_users:
+    updated: "Le membre du compte a été mis à jour."
+    destroyed: "Le membre du compte a été supprimé."
+    edit:
+      description: "Modification des permissions du compte pour %{user}."
+
+  accounts:
+    index:
+      title: "Comptes"
+      create: "Créer un compte"
+      switch: "Changer"
+      current: "Compte actuel"
+    show:
+      invite: "Inviter un utilisateur"
+      edit: "Modifier"
+      edit_account: "Modifier le compte"
+      copy_link: "Copier le lien"
+
+    new:
+      breadcrumb: "Nouveau compte"
+      title: "Nouveau compte"
+    edit:
+      breadcrumb: "Modifier"
+      title: "Modifier compte"
+    created: "Le compte a été créé."
+    updated: "Le compte a été modifié."
+    destroyed: "Le compte a été supprimé."
+    admin_required: "Seuls les administrateurs peuvent faire ça."
+    personal:
+      cannot_delete: "Vous ne pouvez pas supprimer votre compte personnel."
+    all: "Tous les comptes"
+    users: "Utilisateurs"
+    roles: "Rôles"
+    account_invitations:
+      new:
+        description: "Inviter un utilisateur à rejoindre ce compte."
+        send: "Envoyer l’invitation"
+        cancel: "Annuler"
+      edit:
+        description: "Modifier ou annuler l’invitation."
+        back: "Retour"
+        update: "Mettre à jour l’invitation"
+        destroy: "Annuler l’invitation"
+
+  announcements:
+    index:
+      title: "Les nouveautés"
+      empty_placeholder: "Plein de trucs tops bientôt !"
+
+  api_tokens:
+    created: "Jeton API créé."
+    updated: "Jeton API mis à jour."
+    destroyed: "Votre jeton API a été révoqué"
+    all: "Tous les jetons API"
+
+    index:
+      title: "Jetons API"
+      create: "Créer un jeton API"
+      revoke: "Révoquer"
+    new:
+      breadcrumb: "Nouveau"
+      title: "Nouveau jeton API"
+    edit:
+      breadcrumb: "Modifier"
+      title: "Modifier le jeton API"
+    show:
+      edit: "Modifier le jeton"
+      revoke: "Révoquer le jeton"
+      confirm: "Êtes vous sûr de vouloir révoquer ce jeton API ?"
+      auth_header: "Authentifiez-vous à l’aide d'un en-tête HTTP"
+
+  cards:
+    updated: "Votre carte a été mise à jour."
+    edit:
+      billing: "Facturation"
+      payment_details: "Détails du paiement"
+    forms:
+      braintree:
+        button: "Mettre à jour la carte"
+        processing: "Traitement en cours…"
+      stripe:
+        credit_or_debit_card: "Carte de crédit ou de débit"
+        button: "Mettre à jour la carte"
+        processing: "Traitement en cours…"
+
+  dashboard:
+    show:
+      title: "Tableau de bord"
+
+  payments:
+    success: "Merci de nous avoir rejoint !"
+    show:
+      successful: "Paiement réussi"
+      successful_description: "Ce paiement a déjà été confirmé."
+      cancelled: "Paiement annulé"
+      cancelled_description: "Ce paiement a été annulé."
+      confirm: "Confirmez votre paiement de %{amount}"
+      confirm_description: "Une confirmation supplémentaire est nécessaire pour traiter votre paiement. Merci de confirmer votre paiement en remplissant les informations ci-dessous."
+      back: "Retour"
+      confirm_button: "Confirmer le paiement"
+
+  static:
+    no_plans: "Aucun plan de paiement n’est configuré."
+    pricing:
+      heading: "Paiement"
+      subhead: "Un prix simple pour lancer votre activité en ligne"
+      monthly: "Mensuel"
+      yearly: "Annuel"
+      get_started: "Démarrer"
+
+    about:
+      title: "À propos"
+    privacy:
+      title: "Vie privée"
+    terms:
+      title: "Conditions d’utilisation"
+
+  shared:
+    footer:
+      about: "À propos"
+      privacy: "Vie privée"
+      terms: "Conditions d’utilisation"
+    account_navbar:
+      profile: "Profil"
+      password: "Mot de passe"
+      connected_accounts: "Comptes connectés"
+      billing: "Facturation"
+      accounts: "Comptes"
+      api_tokens: "API"
+    flash:
+      confirm_payment: "Confirmez votre dernier paiement"
+    navbar:
+      signed_in_as_html: "Connecté en tant que <strong>%{user}</strong>"
+      profile: "Profil"
+      password: "Mot de passe"
+      connected_accounts: "Comptes associés"
+      billing: "Facturation"
+      api_tokens: "API"
+      accounts: "Comptes"
+      admin: "Admin"
+      dashboard: "Tableau de bord"
+      sign_out: "Déconnection"
+      log_in: "Connection"
+      sign_up: "Créer un compte"
+    right_nav:
+      pricing: "Prix"
+      announcements: "Nouveautés"
+
+  subscriptions:
+    created: "Merci d’avoir souscrit !"
+    resumed: "Votre souscription a repris."
+    info_updated: "Les informations de facturation ont été sauvegardées."
+
+    new:
+      title: "Checkout"
+      payment_method: "Méthode de paiement"
+      change: "Changer"
+      subscribe: "Souscrire"
+      processing: "Traitement…"
+      help: "Besoin d’aide ?"
+      contact_html: "N’hésitez pas à %{link}."
+      renews_html: "Renouvellement automatique<br/>après 1 %{interval}"
+      contact_support: "contacter le support"
+      contact_subject: "J’ai des questions à propos de %{product}"
+      testimonial: "Je n’ai rien trouvé de plus simple à utiliser que %{product} !"
+
+    edit:
+      trial_ends: "Votre période d’essai se termine dans %{days} jours."
+      title: "Changer de plan"
+      description: "Un prix simple pour démarrer votre activité en ligne"
+      monthly: "Mensuel"
+      yearly: "Annuel"
+      current_plan: "Plan actuel"
+      change_plan: "Changer de plan"
+      processing: "Traitement…"
+
+    show:
+      title: "Facturation"
+      contact_admin: "Contacter un administrateur pour changer la souscription sur %{account}."
+
+    current_plan:
+      title: "Plan actuel"
+      trial_ends: "Votre période d’essai se termine dans %{days} jours."
+      subscription_ends_html: "Votre souscription se termine le <strong>%{date}</strong>"
+      subscription_pauses_html: "Your subscription pauses <strong>%{date}</strong>"
+      subscription_paused_html: "Your subscription is <strong>paused</strong>"
+      resume: "Reprendre la souscription"
+      resuming: "Reprise…"
+      resubscribe_html: "Votre souscription s'est terminée. Voulez-vous %{link}?"
+      resubscribe: "resouscrire"
+      current_plan_html: "Vous avez souscrit au plan <strong>%{plan}</strong>."
+      change_plan: "Changer mon plan"
+      not_subscribed: "Vous n’avez pas souscrit."
+      choose_plan: "Choisir un plan"
+      payment_method: "Méthode de paiement"
+      no_card: "Vous n’avez pas de carte enregistrée."
+      update_payment_method: "Mettre à jour la méthode de paiement"
+      extra_billing_info: "Informations supplémentaires de facturation"
+      additional_information: "Ajouter toute information supplémentaire à vos reçus, tels qu'un numéro de TVA, un nom d’entreprise et une adresse."
+      save_info: "Sauvegarde de l’information"
+      saving: "Sauvegarde…"
+      add_info: "Ajouter une information"
+      invoices: "Factures"
+      invoices_description: "Votre historique des transactions et paiements."
+      date: "Date"
+      amount: "Montant"
+      receipt: "Reçu"
+      view: "Voir"
+      pause:
+        title: "Pause Your Subscription"
+        description: "You can pause your subscription and resume at a later time."
+        note: "The pause takes effect on the first day of your next billing cycle. You will not be charged while your account is paused."
+        button: "Pause Subscription"
+        pausing: "Pausing..."
+      cancel:
+        title: "Annuler votre souscription"
+        description: "Vous pouvez annuler à tout moment, mais vous perdrez l’accès à %{product}."
+        help_html: "Besoin de parler à quelqu’un ? %{link} − on peut vous aider."
+        contact_us: "Contactez-nous"
+        subject: "Questions à propos de %{product}"
+        button: "Annuler la souscription"
+        cancelling: "Annulation…"
+
+
+    forms:
+      stripe:
+        credit_or_debit_card: "Carte de crédit ou de débit"
+
+  account:
+    passwords:
+      updated: "Votre mot de passe a été modifié."
+      edit:
+        update_password: "Modifier le mot de passe"
+        update: "Mettre à jour"
+    companies:
+      updated: "Votre entreprise a été mise à jour."
+      edit:
+        update_company: "Mettre à jour l’entreprise"
+        update: "Mettre à jour"
+
+  users:
+    avatar:
+      upload: "Uploader un avatar"
+    connected_accounts:
+      index:
+        title: "Comptes connectés"
+        description: "Connecter votre compte sur les réseaux sociaux facilite la connection."
+        remove: "Enlever"
+        redirecting: "Redirection…"
+        none: "Vous n’avez pas de compte connecté."
+
+  layouts:
+    mailer:
+      copyright_html: "Copyright &copy; %{year}, tous droits réservés."
+      mailing_address: "Notre adresse est :"
+      view_in_browser: "Voir dans un navigateur"
+      unsubscribe: "Se désinscrire de cette liste"
+      preferences: "Mettre à jour les préférences de souscription"
+
+  notifications:
+    invite_accepted: "%{user} a accepté votre invitation."
+    empty: "Rien à voir ici − pour le moment."
+    empty_description: "On vous informera lorsque vous aurez de nouvelles notifications."
+
+  activerecord:
+    attributes:
+      api_token:
+        last_used_at: "Dernière utilisation"
+        created_at: "Créé"
+      account:
+        name_on_card: "Nom sur la carte"
+
+    errors:
+      models:
+        account:
+          attributes:
+            domain:
+              reserved: "%{value} est réservé."
+            subdomain:
+              reserved: "%{value} est réservé."
+              format: "doit faire au moins 2 lettres ou nombres"
+        account_invitation:
+          attributes:
+            email:
+              invited: "a déja été invité"
+        account_user:
+          attributes:
+            admin:
+              cannot_be_removed: "ce rôle ne peut être enlevé du propriétaire du compte"
+
+  helpers:
+    placeholder:
+      account_invitation:
+        name: "Nom complet"
+        email: "exemple@domain.com"
+      account:
+        name: "Nom du compte"
+        domain: "exemple.com"
+        subdomain: "exemple"
+        name_on_card: "Nom complet"
+        extra_billing_info: "Numéro de TVA, nom d’entreprise, adresse, etc."
+      api_token:
+        name: "Nom du jeton"
+      user:
+        name: "Steve Jobs"
+        email: "you@example.com"
+        password: "password"
