@@ -1,4 +1,10 @@
 <div class="container mx-auto">
+  <div>
+    <%= form_with(model: Event, url: events_path, method: :get) do |f| %>
+      <%= f.text_field :search, label: false, value: params.dig(:events_filter, :search) %>
+      <%= f.submit "Chercher", class: "btn btn-primary" %>
+    <% end %>
+  </div>
   <h2 class="my-4">sports:</h2>
   <div role="list" class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
     <% @sports.each do |sport| %>
