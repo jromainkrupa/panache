@@ -30,7 +30,7 @@
         <% @clubs.each do |club| %>
           <tr class="group border-t border-gray-400 hover:bg-gray-100">
             <td class="p-3"><%= club.name %></td>
-            <td class="p-3"><%= club.sports.first.name %></td>
+            <td class="p-3"><%= club.sports.first.name if club.sports.present? %></td>
             <td class="p-3"><%= club.city %></td>
             <td>
               <%= link_to t("shared.scaffold.view"), club, class: "btn btn-link no-underline" %>

@@ -8,4 +8,16 @@ class ClubPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def create?
+    record.admin ==  user
+  end
+
+  def update?
+    record.admin ==  user
+  end
+
+  def destroy?
+    record.admin ==  user
+  end
 end

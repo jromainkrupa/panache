@@ -16,10 +16,13 @@ class ClubsController < ApplicationController
   # GET /clubs/new
   def new
     @club = Club.new
+    authorize @club
   end
 
   # GET /clubs/1/edit
   def edit
+    authorize @club
+
   end
 
   # POST /clubs or /clubs.json
@@ -28,6 +31,8 @@ class ClubsController < ApplicationController
     @user.update(is_club_admin: true)
     @club = Club.new(club_params)
     @club.admin = @user
+
+    authorize @club
 
     respond_to do |format|
       if @club.save
@@ -42,6 +47,8 @@ class ClubsController < ApplicationController
 
   # PATCH/PUT /clubs/1 or /clubs/1.json
   def update
+    authorize @club
+
     respond_to do |format|
       if @club.update(club_params)
         format.html { redirect_to @club, notice: "Club was successfully updated." }
@@ -55,6 +62,8 @@ class ClubsController < ApplicationController
 
   # DELETE /clubs/1 or /clubs/1.json
   def destroy
+    authorize @club
+
     @club.destroy
     respond_to do |format|
       format.html { redirect_to clubs_url, notice: "Club was successfully destroyed." }
@@ -70,6 +79,6 @@ class ClubsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def club_params
-      params.fetch(:club, {})
+      params.require(:club).permit(:name, :address, :city, :postal_code, :website, :image_url, sports: [])
     end
 end
