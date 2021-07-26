@@ -3,6 +3,9 @@ class Event < ApplicationRecord
   belongs_to :sport
   belongs_to :club, optional: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_description_and_name, against: [:description, :name], using: {tsearch: {prefix: true}}
+
   validates :name, presence: true
   validates :address, presence: true
   validates :city, presence: true
