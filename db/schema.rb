@@ -45,10 +45,14 @@ ActiveRecord::Schema.define(version: 2021_07_23_123750) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.string "name"
+    t.string "image_url"
+    t.text "description"
+    t.integer "price"
+    t.boolean "is_free"
     t.bigint "sport_id", null: false
     t.bigint "club_id"
     t.bigint "user_id", null: false
-    t.string "event_website"
+    t.string "website"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["club_id"], name: "index_events_on_club_id"

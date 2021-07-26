@@ -8,4 +8,12 @@ module ApplicationHelper
     filename = "#{name}.svg"
     inline_svg_tag(filename, options)
   end
+
+  def humanized_address(resource)
+    "#{resource.address}, #{resource.city} - #{resource.postal_code}"
+  end
+
+  def stringify_date(date)
+    "#{I18n.l(date, format: '%d %B %Y, %Hh%M')}"
+  end
 end

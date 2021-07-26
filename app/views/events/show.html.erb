@@ -1,4 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="container mx-auto">
+  <div class="h-64 h4 bg-cover bg-center flex items-center justify-center text-white shadow rounded-xl" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @event.image_url %>)">
+  </div>
+  <ul>
+    <li class="h2"><%= @event.name %></li>
+    <li><%= @event.description %></li>
+    <hr class="my-4 border-2">
+    <li class="font-bold">address: <%= @event.address %></li>
+    <li class="font-bold">city: <%= @event.city %></li>
+    <li class="font-bold">code postal: <%= @event.postal_code %></li>
+    <li> ou </li>
+    <li class="font-bold">addresse complète: <%= humanized_address(@event) %></li>
+    <hr class="my-4 border-2">
+    <li>organisateur: <%= @event.organizer.first_name %></li>
+    <hr class="my-4 border-2">
+    <li>
+      date de début: <span class="text-blue-800"><%= @event.start_date %></span> 
+      --OU-- 
+      <span class="text-blue-800"><%= stringify_date(@event.start_date) %>
+    </li>
+    
+    <li>
+      date de fin: <span class="text-blue-800"><%= @event.end_date %></span> 
+      --OU-- 
+      <span class="text-blue-800"><%= stringify_date(@event.end_date) %>
+    </li>
+    <hr class="my-4 border-2">
+    <li>site web: <%= @event.website %></li>
+    <li>est gratuit ?: <%= @event.is_free? %></li>
+    <li>prix: <%= @event.price %> €</li>
+    <li>sport: <%= @event.sport.name %></li>
+    <li>club: <%= @event.club.name if @event.club %></li>
+  </ul>
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to 'Back', events_path %>
+</div>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>

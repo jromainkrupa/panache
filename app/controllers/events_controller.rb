@@ -1,13 +1,16 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:show]
   before_action :set_event, only: %i[ show edit update destroy ]
 
   # GET /events or /events.json
   def index
-    @events = Event.all
+    @events = policy_scope Event.all
+
   end
 
   # GET /events/1 or /events/1.json
   def show
+    authorize @event
   end
 
   # GET /events/new
