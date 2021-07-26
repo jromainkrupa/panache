@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :events, only: [:index, :show]
+  resources :clubs, only: [:index, :show]
 
   devise_for :users
   

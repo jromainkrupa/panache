@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @pagy, @events = pagy(Event.sort_by_params(params[:sort], sort_direction))
-    
+
     events_filter = params[:event]
     sport_filter = params[:sport]
 
