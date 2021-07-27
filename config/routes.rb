@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
   scope controller: :pages do
     get :about
+    get :pros
     get :terms
     get :privacy
   end

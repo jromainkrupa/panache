@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include Sortable
 
   before_action :set_locale
-  before_action :authenticate_user!
+  before_action :authenticate_user!, unless: :skip_devise?
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
@@ -27,5 +27,9 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  def skip_devise?
+    params[:controller] =~ /(^pages$)/
   end
 end
