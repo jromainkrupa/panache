@@ -9,6 +9,10 @@ class ClubPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
   def create?
     record.admin ==  user
   end

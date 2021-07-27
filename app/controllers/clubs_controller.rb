@@ -6,7 +6,7 @@ class ClubsController < ApplicationController
   # GET /clubs or /clubs.json
   def index
     if params[:search].present? 
-      @pagy, @clubs = pagy(Club.search_by_sport_and_name(params[:search]))
+      @pagy, @clubs = pagy(Club.search_by_city_and_name(params[:search]))
     elsif params[:sport].present?
       @pagy, @clubs = pagy(Club.joins(:sport).where(sports: { name: params[:sport] }))
     else
