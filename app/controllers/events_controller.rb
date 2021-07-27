@@ -5,19 +5,13 @@ class EventsController < ApplicationController
 
   # GET /events or /events.json
   def index
-    @pagy, @events = pagy(Event.sort_by_params(params[:sort], sort_direction))
-
-    events_filter = params[:event]
-    sport_filter = params[:sport]
-
-    if sport_filter.present?
-      @events = Event.joins(:sport).where(sports: {  name: sport_filter})
+    if params[:event].present? && params[:event][:search].present?
+      @pagy, @events = pagy(Event.search_by_description_and_name(params[:event][:search]))
+    elsif params[:sport].present?
+      @pagy, @events = pagy(Event.joins(:sport).where(sports: {  name: params[:sport]}))
+    else
+      @pagy, @events = pagy(Event.sort_by_params(params[:sort], sort_direction))
     end
-
-    if events_filter.present? && events_filter[:search].present?
-      @events = Event.search_by_description_and_name(events_filter[:search])
-    end
-
     @events.load
   end
 
