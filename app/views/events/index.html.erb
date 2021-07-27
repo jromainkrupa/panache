@@ -14,10 +14,6 @@
 
   <div class="flex justify-between items-center mb-4">
     <h1 class="h3">Events</h1>
-
-    <% if @events.any? %>
-      <%= link_to t("shared.scaffold.new.title", model: "Event"), new_event_path, class: "btn btn-primary" %>
-    <% end %>
   </div>
 
   <% if @events.any? %>
