@@ -1,6 +1,6 @@
 class ClubsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
-  before_action :set_club, only: %i[ show edit update destroy ]
+  before_action :set_club, only: %i[show edit update destroy ]
   skip_after_action :verify_policy_scoped, only: [:index]
 
   # GET /clubs or /clubs.json

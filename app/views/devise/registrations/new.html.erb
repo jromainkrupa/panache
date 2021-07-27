@@ -27,6 +27,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :is_club_admin, "Souhaitez vous créez un club ?" %>
+      <%= f.check_box :is_club_admin,class: "form-checkbox" %>
+    </div>
+
+    <div class="form-group">
       <%= f.label :password %>
       <%= f.password_field :password, placeholder: "123456 (mais ne faites pas ça !)", class:"form-control" %>
       <% if @minimum_password_length %>

@@ -18,11 +18,12 @@ class ApplicationController < ActionController::Base
   def locale_from_header
     request.env.fetch('HTTP_ACCEPT_LANGUAGE','').scan(/[a-z]{2}/).first
   end
+
   protected
   
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_number, :is_club_admin])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :phone_number, :is_club_admin])
   end
 
   def skip_pundit?

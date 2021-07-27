@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  devise_for :users,
+  controllers: {
+    registrations: "users/registrations"
+  }
+
+
   namespace :admin do
     resources :users
     resources :club_sports
@@ -10,24 +17,19 @@ Rails.application.routes.draw do
   end
 
   root to: "pages#home"
-
-  resources :events, only: [:index, :show]
-  resources :clubs, only: [:index, :show]
-
-  devise_for :users,
-  controllers: {
-    registrations: "users/registrations"
-  }
   
   authenticated :user, lambda {|u| u.is_club_admin?} do
     resources :clubs, only: %i[new create edit update destroy] do
       resources :events, only: %i[new create edit update destroy]
     end
   end
-
+  
   authenticated :user, lambda { |u| u.is_event_admin? } do
     resources :events, only: %i[new create edit update destroy]
   end
+  
+  resources :events, only: [:index, :show]
+  resources :clubs, only: [:index, :show]
 
   scope controller: :pages do
     get :about
