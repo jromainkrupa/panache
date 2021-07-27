@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show]
   resources :clubs, only: [:index, :show]
 
-  devise_for :users
+  devise_for :users,
+  controllers: {
+    registrations: "users/registrations"
+  }
   
   authenticated :user, lambda {|u| u.is_club_admin?} do
     resources :clubs, only: %i[new create edit update destroy] do
