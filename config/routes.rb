@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  resources :clubs
-  resources :events
+  namespace :admin do
+    resources :users
+    resources :club_sports
+    resources :sports
+    resources :clubs
+    resources :events
+
+    root to: "users#index"
+  end
+
   root to: "pages#home"
 
   resources :events, only: [:index, :show]
@@ -12,6 +20,10 @@ Rails.application.routes.draw do
     resources :clubs, only: %i[new create edit update destroy] do
       resources :events, only: %i[new create edit update destroy]
     end
+  end
+
+  authenticated :user, lambda { |u| u.is_event_admin? } do
+    resources :events, only: %i[new create edit update destroy]
   end
 
   scope controller: :pages do
