@@ -4,6 +4,9 @@ class Club < ApplicationRecord
   has_many :club_sports
   has_many :sports, through: :club_sports
 
+  include PgSearch::Model
+  pg_search_scope :search_by_sport_and_name, against: [:sport, :name], using: {tsearch: {prefix: true}}
+
   validates :name, presence: true
   validates :address, presence: true
   validates :city, presence: true

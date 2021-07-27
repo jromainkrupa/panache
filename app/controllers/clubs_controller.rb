@@ -5,7 +5,13 @@ class ClubsController < ApplicationController
 
   # GET /clubs or /clubs.json
   def index
-    @pagy, @clubs = pagy(Club.sort_by_params(params[:sort], sort_direction))
+    if params[:search].present? 
+      @pagy, @clubs = pagy(Club.search_by_sport_and_name(params[:search]))
+    elsif params[:sport].present?
+      @pagy, @clubs = pagy(Club.joins(:sport).where(sports: { name: params[:sport] }))
+    else
+      @pagy, @clubs = pagy(Club.sort_by_params(params[:sort], sort_direction))
+    end
   end
 
   # GET /clubs/1 or /clubs/1.json

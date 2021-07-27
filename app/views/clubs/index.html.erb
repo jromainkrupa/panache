@@ -1,8 +1,14 @@
 <div class="container mx-auto my-8 px-4">
   <div>
-    <%= form_with(model: Club, url: clubs_path, method: :get) do |f| %>
-      <%= f.text_field :search, label: false, value: params.dig(:clubs_filter, :search) %>
-      <%= f.submit "Chercher", class: "btn btn-primary" %>
+    <%= form_with(model: Club, url: clubs_path, method: :get, class:"w-1/3 my-4 sm:flex sm:items-center") do |f| %>
+
+          <%= f.text_field :search, label: false,
+                                    name: "search",
+                                    class: "form-control",
+                                    placeholder: "Recherchez",
+                                    value: params.dig(:search) %>
+
+        <%= f.submit "Chercher", class: "btn btn-primary mt-1  ml-2" %>
     <% end %>
   </div>
 
