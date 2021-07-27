@@ -1,7 +1,9 @@
 <div class="container mx-auto my-8 px-4">
   <div>
     <%= form_with(model: Event, url: events_path, method: :get) do |f| %>
-      <%= f.text_field :search, label: false, value: params.dig(:events_search, :search) %>
+      <%= f.text_field :search, label: false,
+                                name: "search",
+                                value: params.dig(:search) %>
       <%= f.submit "Chercher", class: "btn btn-primary" %>
     <% end %>
   </div>

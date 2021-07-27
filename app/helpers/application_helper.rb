@@ -13,6 +13,10 @@ module ApplicationHelper
     "#{resource.address}, #{resource.city} - #{resource.postal_code}"
   end
 
+  def disable_with(text)
+    "<i class=\"far fa-spinner-third fa-spin\"></i> #{text}".html_safe
+  end
+
   def stringify_date(date)
     "#{I18n.l(date, format: '%d %B %Y, %Hh%M')}"
   end

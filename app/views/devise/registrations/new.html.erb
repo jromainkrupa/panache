@@ -10,10 +10,12 @@
       <%= f.label :first_name, "Prénom" %>
       <%= f.text_field :first_name, autofocus: true, placeholder: "Votre prénom (probablement très joli)", class: "form-control" %>
     </div>
+
     <div class="form-group">
       <%= f.label :last_name, "Nom" %>
       <%= f.text_field :last_name, placeholder: "Votre nom (certainement très beau aussi)", class: "form-control" %>
     </div>
+    
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email,placeholder: "quelquechose@surementgmail.com", class: "form-control" %>
