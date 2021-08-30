@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
-  before_action :set_event, only: %i[ show edit update destroy ]
+  before_action :set_event, only: %i[show edit update destroy ]
   skip_after_action :verify_policy_scoped, only: [:index]
 
   # GET /events or /events.json
@@ -12,7 +12,6 @@ class EventsController < ApplicationController
     else
       @pagy, @events = pagy(Event.sort_by_params(params[:sort], sort_direction))
     end
-    #raise
     @events.load
   end
 
