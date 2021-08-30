@@ -17,7 +17,7 @@
     <li>events: <%= @club.events.map { |event| event.name } %></li>
 
   <% if user_signed_in? && current_user.is_club_admin?  %>
-    <%= link_to "créez un event", new_club_event_path(@club) %>
+    <%= link_to "créez un event", new_event_path(@club) %>
   <% end %>
   </ul>
   <%= link_to 'Edit', edit_club_path(@club) %> |
