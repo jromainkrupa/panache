@@ -9,9 +9,11 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body class="h-full min-h-screen font-sans antialiased font-normal leading-normal bg-gray-100">
+
     <div class="main">
       <%= render partial: "shared/flash" %>
       <%= render partial: "shared/navbar" unless yield(:no_layout).to_s.strip == "true" %>
