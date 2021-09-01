@@ -1,46 +1,46 @@
-<div class="container mx-auto my-8 px-4">
+<div class="container mx-auto mb-8 mt-36 px-4">
+    <h1 class="my-4 text-3xl">Tous les clubs</h1>
   <div>
-    <%= form_with(model: Club, url: clubs_path, method: :get, class:"w-1/3 my-4 sm:flex sm:items-center") do |f| %>
+    <%= form_with(model: Club, url: clubs_path, method: :get, class:"w-1/3 my-4 sm:flex sm:items-center relative") do |f| %>
 
           <%= f.text_field :search, label: false,
                                     name: "search",
-                                    class: "form-control",
+                                    class: "rounded-full py-3 pl-4 w-full border border-gray-200",
                                     placeholder: "Recherchez",
                                     value: params.dig(:search) %>
 
-        <%= f.submit "Chercher", class: "btn btn-primary mt-1  ml-2" %>
+        <%= f.submit "Chercher", class: "px-4 bg-yellow-500 text-white font-bold absolute right-1 top-1 bottom-1 rounded-full" %>
     <% end %>
   </div>
 
-  <div class="flex justify-between items-center mb-4">
-    <h1 class="h3">Clubs</h1>
-  </div>
-
   <% if @clubs.any? %>
-    <div class="bg-white rounded shadow table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :name, "name", class: "text-gray-700" %></th>
-            <th class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :sport, "sport", class: "text-gray-700" %></th>
-            <th class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :city, "city", class: "text-gray-700" %></th>
-            <th class="p-3 uppercase text-left text-xs text-gray-700 w-20"><%= t("shared.scaffold.actions") %></th>
-          </tr>
-        </thead>
-
-        <tbody>
+    <div>
+      <button class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :name, "name", class: "text-gray-700" %></button>
+      <button class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :sport, "sport", class: "text-gray-700" %></button>
+      <button class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :city, "city", class: "text-gray-700" %></button>
+      <button class="p-3 uppercase text-left text-xs text-gray-700 w-20"><%= t("shared.scaffold.actions") %></button>
+      <div class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-2 xl:gap-x-8">
         <% @clubs.each do |club| %>
-          <tr class="group border-t border-gray-400 hover:bg-gray-100">
-            <td class="p-3"><%= club.name %></td>
-            <td class="p-3"><%= club.sports.first.name if club.sports.present? %></td>
-            <td class="p-3"><%= club.city %></td>
-            <td>
-              <%= link_to t("shared.scaffold.view"), club, class: "btn btn-link no-underline" %>
-            </td>
-          </tr>
+          <%= link_to club_path(club) do %>
+          <div class="h-44 bg-cover bg-center relative flex text-black shadow rounded-xl overflow-hidden">
+            <%# <%= image_tag club.image_url, class:"w-36" %>
+            <%= image_tag "https://images.unsplash.com/photo-1630412500200-728764552dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80", class:"w-56 object-cover" %>
+            <div class="flex flex-col justify-between items-start py-4 pl-6 pr-6">
+              <span class="h4 text-yellow-500"><%= club.name %></span>
+              <span class="bg-yellow-500 py-2 px-4 font-medium rounded-xl text-white"><%= club.sports.first.name if club.sports.present? %></span>
+              <div class="flex items-center font-bold">
+                <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.657 15.157L10.414 19.4C10.2284 19.5858 10.0081 19.7331 9.76556 19.8336C9.52303 19.9342 9.26305 19.9859 9.0005 19.9859C8.73796 19.9859 8.47798 19.9342 8.23544 19.8336C7.99291 19.7331 7.77256 19.5858 7.587 19.4L3.343 15.157C2.22422 14.0382 1.46234 12.6127 1.15369 11.0609C0.845043 9.50904 1.00349 7.90053 1.60901 6.43874C2.21452 4.97696 3.2399 3.72755 4.55548 2.84852C5.87107 1.96949 7.41777 1.50031 9 1.50031C10.5822 1.50031 12.1289 1.96949 13.4445 2.84852C14.7601 3.72755 15.7855 4.97696 16.391 6.43874C16.9965 7.90053 17.155 9.50904 16.8463 11.0609C16.5377 12.6127 15.7758 14.0382 14.657 15.157V15.157Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M12 9.5C12 10.2956 11.6839 11.0587 11.1213 11.6213C10.5587 12.1839 9.79565 12.5 9 12.5C8.20435 12.5 7.44129 12.1839 6.87868 11.6213C6.31607 11.0587 6 10.2956 6 9.5C6 8.70435 6.31607 7.94129 6.87868 7.37868C7.44129 6.81607 8.20435 6.5 9 6.5C9.79565 6.5 10.5587 6.81607 11.1213 7.37868C11.6839 7.94129 12 8.70435 12 9.5V9.5Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="p-3"><%= club.postal_code %> <%= club.city %></span>
+              </div>
+            </div>
+              <%# <%= link_to t("shared.scaffold.view"), club, class: "btn btn-link no-underline" %>
+          </div>
         <% end %>
-        </tbody>
-      </table>
+        <% end %>
+        </div>
     </div>
 
     <% if @pagy.pages > 1 %>
