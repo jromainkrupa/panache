@@ -23,6 +23,9 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @club = Club.find(params[:club]) if params[:club].present?
+    
+    
     authorize @event
   end
 
@@ -78,6 +81,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :address, :city, :postal_code, :website, :image_url, :start_date, :end_date, :sport_id)
+      params.require(:event).permit(:name, :address,:club_id,  :city, :postal_code, :website, :image_url, :start_date, :end_date, :sport_id)
     end
 end

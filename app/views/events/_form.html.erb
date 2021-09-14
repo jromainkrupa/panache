@@ -1,6 +1,6 @@
 <%= form_with(model: event) do |form| %>
   <%= render "shared/error_messages", resource: form.object %>
-
+  <%= form.hidden_field(:club_id, value: "#{@club.id}") if @club %>
   <div class="form-group">
     <%= form.label :name %>
     <%= form.text_field :name, class: "form-control" %>
