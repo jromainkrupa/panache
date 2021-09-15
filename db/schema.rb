@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 2021_09_15_104019) do
     t.string "facebook_url"
     t.string "twitter_url"
     t.string "instagram_url"
-    t.text "extra_detail"
     t.text "key_number"
+    t.text "description"
+    t.text "information"
     t.index ["user_id"], name: "index_clubs_on_user_id"
   end
 
