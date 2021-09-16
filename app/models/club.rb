@@ -3,6 +3,8 @@ class Club < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :club_sports
   has_many :sports, through: :club_sports
+  has_one_attached :banner
+  has_one_attached :photo
 
   include PgSearch::Model
   pg_search_scope :search_by_city_and_name, against: [:city, :name], using: {tsearch: {prefix: true}}

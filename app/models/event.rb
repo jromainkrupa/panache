@@ -2,6 +2,8 @@ class Event < ApplicationRecord
   belongs_to :organizer, class_name: "User", foreign_key: "user_id"
   belongs_to :sport
   belongs_to :club, optional: true
+  has_one_attached :banner
+  has_one_attached :photo
 
   include PgSearch::Model
   pg_search_scope :search_by_description_and_name, against: [:description, :name], using: {tsearch: {prefix: true}}
