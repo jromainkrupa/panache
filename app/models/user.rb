@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :clubs, dependent: :destroy
   has_many :events, through: :clubs
+  has_one_attached :avatar
 
   def full_name
     "#{first_name.capitalize} #{last_name.upcase}"

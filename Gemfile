@@ -6,6 +6,7 @@ ruby '2.6.6'
 gem 'administrate'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'capybara', '~> 3.35'
+gem 'cloudinary'
 gem 'devise'
 gem 'devise-i18n', '~> 1.9'
 gem 'inline_svg', '~> 1.6'
