@@ -8,6 +8,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'capybara', '~> 3.35'
 gem 'cloudinary'
 gem 'devise'
+gem 'pg_search'
 gem 'devise-i18n', '~> 1.9'
 gem 'inline_svg', '~> 1.6'
 gem 'jbuilder', '~> 2.7'
