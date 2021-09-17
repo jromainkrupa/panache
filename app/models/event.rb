@@ -5,18 +5,26 @@ class Event < ApplicationRecord
   has_one_attached :banner
   has_one_attached :photo
 
-  include PgSearch::Model
-  pg_search_scope :search_by_description_and_name, against: [:description, :name], using: {tsearch: {prefix: true}}
-
+  
   validates :name, presence: true
   validates :address, presence: true
   validates :city, presence: true
   validates :postal_code, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
-
+  
   validate :end_date_after_start_date
   validate :start_date_after_now
+
+  include PgSearch::Model
+  pg_search_scope :search_by_description_name_and_sport, 
+    against: [:description, :name], 
+    associated_against: {
+      sport: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
   
  
   def set_club_admin_as_organizer
