@@ -19,10 +19,17 @@ class ClubDashboard < Administrate::BaseDashboard
     website: Field::String,
     city: Field::String,
     postal_code: Field::String,
-    user_id: Field::Number,
     mail: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    facebook_url: Field::String,
+    twitter_url: Field::String,
+    instagram_url: Field::String,
+    key_number: Field::String,
+    description: Field::String,
+    information: Field::String,
+    phone_number: Field::String,
+    siret: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -45,16 +52,22 @@ class ClubDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     name
-    image_url
     address
     city
     postal_code
     admin
     website
-    user_id
     mail
     events
     sports
+    facebook_url
+    twitter_url
+    instagram_url
+    key_number
+    description
+    information
+    phone_number
+    siret
     created_at
     updated_at
   ].freeze
@@ -64,17 +77,22 @@ class ClubDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     admin
-    events
-    club_sports
     sports
     name
     address
-    image_url
     website
     city
     postal_code
-    user_id
     mail
+    facebook_url
+    twitter_url
+    instagram_url
+    key_number
+    description
+    information
+    phone_number
+    siret
+
   ].freeze
 
   # COLLECTION_FILTERS
