@@ -25,7 +25,6 @@ class EventsController < ApplicationController
     @event = Event.new
     @club = Club.find(params[:club]) if params[:club].present?
     
-    
     authorize @event
   end
 
