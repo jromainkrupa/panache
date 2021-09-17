@@ -49,7 +49,7 @@
         <span class="col-span-7 font-bold"><%= humanized_address(@club) %></span>
       </div>
     </div>
-    <%# image %>
+    
     <% if @club.photo.attached? %>
       <%= cl_image_tag @club.photo.key, class:"h-56 w-full object-cover rounded-b-xl" %>
     <% end %>
