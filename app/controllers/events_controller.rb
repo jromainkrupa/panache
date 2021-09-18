@@ -9,6 +9,8 @@ class EventsController < ApplicationController
       @pagy, @events = pagy(Event.search_by_description_name_and_sport(params[:search]))
     elsif params[:sport].present?
       @pagy, @events = pagy(Event.joins(:sport).where(sports: { name: params[:sport] }))
+    elsif params[:admin].present?
+      @pagy, @events = pagy(Event.where(user_id: current_user.id))
     else
       @pagy, @events = pagy(Event.sort_by_params(params[:sort], sort_direction))
     end
@@ -25,7 +27,7 @@ class EventsController < ApplicationController
     @event = Event.new
     @club = Club.find(params[:club]) if params[:club].present?
     
-    authorize @event
+    authorize @event 
   end
 
   # GET /events/1/edit
@@ -36,6 +38,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organizer = current_user
+
+    raise
     
     authorize @event
 

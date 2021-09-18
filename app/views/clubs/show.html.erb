@@ -74,7 +74,7 @@
   <div class="col-span-2 row-start-4">
   <% if current_user && @club.admin == current_user%>
     <%= link_to 'Edit', edit_club_path(@club) %> |
-    <%= link_to 'Add an Event', new_event_path(club: @club) %> |
+    <%= link_to 'Add an Event', new_event_path(club_id: @club) %> |
     <%= link_to 'Back', clubs_path %>
   <% end  %>
   </div>
