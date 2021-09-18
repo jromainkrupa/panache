@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @club = Club.find(params[:club]) if params[:club].present?
+    @club = Club.find(params[:club_id]) if params[:club_id].present?
     
     authorize @event 
   end
@@ -38,8 +38,6 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.organizer = current_user
-
-    raise
     
     authorize @event
 
