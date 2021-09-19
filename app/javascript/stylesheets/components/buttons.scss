@@ -30,19 +30,19 @@
 }
 
 .btn-primary {
-  @apply bg-primary-600 text-white;
+  @apply bg-yellow-600 text-white;
 
   &:hover,
   &:focus {
-    @apply bg-primary-500 text-white;
+    @apply bg-yellow-500 text-white;
   }
 
   &.outline {
-    @apply bg-transparent border border-primary-500 text-primary-500 shadow-none;
+    @apply bg-transparent border border-yellow-500 text-yellow-500 shadow-none;
 
     &:hover,
     &:focus {
-      @apply bg-primary-500 text-white;
+      @apply bg-yellow-500 text-white;
     }
   }
 }
@@ -140,3 +140,4 @@
 .btn-expanded {
   @apply block w-full;
 }
+

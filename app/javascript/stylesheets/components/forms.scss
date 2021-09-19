@@ -99,3 +99,23 @@ form.inline {
     }
   }
 }
+
+input[type="file"]{
+  > *{
+    @apply bg-yellow-600 text-white;
+  
+    &:hover,
+    &:focus {
+      @apply bg-yellow-500 text-white;
+    }
+  
+    &.outline {
+      @apply bg-transparent border border-yellow-500 text-yellow-500 shadow-none;
+  
+      &:hover,
+      &:focus {
+        @apply bg-yellow-500 text-white;
+      }
+    }
+  }
+}
