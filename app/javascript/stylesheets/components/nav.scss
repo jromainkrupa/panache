@@ -1,5 +1,5 @@
 .nav-link {
-  @apply block no-underline text-white hover:text-white px-2 py-1 text-base font-medium whitespace-nowrap;
+  @apply block no-underline text-black lg:text-left text-center lg:text-white hover:text-white px-2 py-1 text-base font-medium whitespace-nowrap;
   line-height: 30px;
 
   &.active {
