@@ -6,9 +6,11 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     if params[:search].present? 
-      @pagy, @events = pagy(Event.search_by_description_and_name(params[:search]))
+      @pagy, @events = pagy(Event.search_by_description_name_and_sport(params[:search]))
     elsif params[:sport].present?
       @pagy, @events = pagy(Event.joins(:sport).where(sports: { name: params[:sport] }))
+    elsif params[:admin].present?
+      @pagy, @events = pagy(Event.where(user_id: current_user.id))
     else
       @pagy, @events = pagy(Event.sort_by_params(params[:sort], sort_direction))
     end
@@ -23,10 +25,9 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @club = Club.find(params[:club]) if params[:club].present?
+    @club = Club.find(params[:club_id]) if params[:club_id].present?
     
-    
-    authorize @event
+    authorize @event 
   end
 
   # GET /events/1/edit
@@ -81,6 +82,6 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.require(:event).permit(:name, :address,:club_id,  :city, :postal_code, :website, :image_url, :start_date, :end_date, :sport_id)
+      params.require(:event).permit(:name, :address,:club_id,  :city, :postal_code, :website, :image_url, :start_date, :end_date, :sport_id, :banner, :photo)
     end
 end

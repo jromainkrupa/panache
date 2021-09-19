@@ -14,6 +14,10 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    if record.club.present?
+      record.club.admin == user
+    else 
+      true
+    end
   end
 end

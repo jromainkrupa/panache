@@ -8,8 +8,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true, uniqueness: { scope: :first_name}
   validates :email, presence: true, uniqueness: true
 
-  has_many :clubs, dependent: :destroy
-  has_many :events, through: :clubs
+  has_one :club, dependent: :destroy
+  has_many :events, through: :club
+  has_one_attached :avatar
 
   def full_name
     "#{first_name.capitalize} #{last_name.upcase}"
