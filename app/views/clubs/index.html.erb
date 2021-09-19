@@ -1,30 +1,29 @@
 <div class="container mx-auto mb-8 mt-36 px-4">
     <h1 class="my-4 text-3xl">Tous les clubs</h1>
-  <div>
-    <%= form_with(model: Club, url: clubs_path, method: :get, class:"w-1/3 my-4 sm:flex sm:items-center relative") do |f| %>
-
-          <%= f.text_field :search, label: false,
-                                    name: "search",
-                                    class: "rounded-full py-3 pl-4 w-full border border-gray-200",
-                                    placeholder: "Recherchez",
-                                    value: params.dig(:search) %>
-
-        <%= f.submit "Chercher", class: "px-4 bg-yellow-500 text-white font-bold absolute right-1 top-1 bottom-1 rounded-full" %>
+    <div class="flex flex-col md:flex-row md:items-center md:gap-2">
+    <%= form_with(model: Club, url: clubs_path, method: :get, class:"w-full md:w-2/3 lg:w-1/3 mb-2 md:mb-4 md:mt-4 sm:flex sm:items-center relative") do |f| %>
+      <%= f.text_field :search, label: false,
+                                name: "search",
+                                class: "rounded-full py-3 pl-4 w-full border border-gray-200",
+                                placeholder: "Recherchez",
+                                value: params.dig(:search) %>
+      <%= f.submit "Chercher", class: "px-4 bg-yellow-500 text-white font-bold absolute right-1 top-1 bottom-1 rounded-full" %>
     <% end %>
+    <div class="md:w-1/2">
+    <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :name, "name", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :sport, "sport", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :city, "city", class: "text-gray-700" %></button>
+    </div>
   </div>
 
   <% if @clubs.any? %>
     <div>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :name, "name", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :sport, "sport", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @clubs, :city, "city", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs text-gray-700 w-20"><%= t("shared.scaffold.actions") %></button>
       <div class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-2 xl:gap-x-8">
         <% @clubs.each do |club| %>
           <%= link_to club_path(club) do %>
           <div class="h-44 bg-cover bg-center relative flex text-black shadow rounded-xl overflow-hidden">
-            <%# <%= image_tag club.image_url, class:"w-36" %>
-            <%= image_tag "https://images.unsplash.com/photo-1630412500200-728764552dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80", class:"w-56 object-cover" %>
+            <%= image_tag club.image_url, class:"w-56 object-cover" %>
+            <%#= image_tag "https://images.unsplash.com/photo-1630412500200-728764552dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80", class:"w-56 object-cover" %>
             <div class="flex flex-col justify-between items-start py-4 pl-6 pr-6">
               <span class="h4 text-yellow-500"><%= club.name %></span>
               <span class="bg-yellow-500 py-2 px-4 font-medium rounded-xl text-white"><%= club.sports.first.name if club.sports.present? %></span>
