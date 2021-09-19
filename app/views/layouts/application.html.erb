@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
     <!-- Hotjar Tracking Code for https://app.panachesport.fr/ -->
     <script>
         (function(h,o,t,j,a,r){
@@ -22,18 +20,14 @@
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
   </head>
-
   <body class="h-full min-h-screen font-sans antialiased font-normal leading-normal bg-gray-100">
-
     <div class="main">
       <%= render partial: "shared/flash" %>
       <%= render partial: "shared/navbar" unless yield(:no_layout).to_s.strip == "true" %>
-
-      <div class="px-3 lg:px-0">
+      <%# <div class="px-3 lg:px-0"> %>
         <%= yield %>
-      </div>
+      <%# </div> %>
     </div>
-
     <%= render partial: "shared/footer" %>
   </body>
 </html>

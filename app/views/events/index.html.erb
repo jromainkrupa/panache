@@ -1,7 +1,7 @@
 <div class="container mx-auto mb-8 mt-36 px-4">
   <h1 class="my-4 text-3xl">Tous les évènements</h1>
-  <div>
-    <%= form_with(model: Event, url: events_path, method: :get, class:"w-1/3 my-4 sm:flex sm:items-center relative") do |f| %>
+  <div class="flex flex-col md:flex-row md:items-center md:gap-2">
+    <%= form_with(model: Event, url: events_path, method: :get, class:"w-full md:w-2/3 lg:w-1/3 mb-2 md:mb-4 md:mt-4 sm:flex sm:items-center relative") do |f| %>
       <%= f.text_field :search, label: false,
                                 name: "search",
                                 class: "rounded-full py-3 pl-4 w-full border border-gray-200",
@@ -9,37 +9,34 @@
                                 value: params.dig(:search) %>
       <%= f.submit "Chercher", class: "px-4 bg-yellow-500 text-white font-bold absolute right-1 top-1 bottom-1 rounded-full" %>
     <% end %>
+    <div class="md:w-1/2">
+      <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :start_date, "start", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :end_date, "end", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :sport, "sport", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :city, "city", class: "text-gray-700" %></button>
+    </div>
   </div>
-
   <% if @events.any? %>
     <div>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @events, :name, "name", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @events, :start_date, "start", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @events, :end_date, "end", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @events, :sport, "sport", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs"><%= sortable @events, :city, "city", class: "text-gray-700" %></button>
-      <button class="p-3 uppercase text-left text-xs text-gray-700 w-20"><%= t("shared.scaffold.actions") %></button>
-      <div class="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
+      <div class="grid md:grid-cols-2 gap-x-4 gap-y-2 lg:gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
         <% @events.each do |event| %>
           <%= link_to event_path(event) do %>
             <div class="h-52 p-4 bg-cover bg-center relative flex items-end text-white shadow rounded-xl" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= event.image_url %>)">
               <span class="absolute top-0 left-0 ml-4 mt-4 bg-yellow-500 py-2 px-4 font-medium rounded-xl"><%= event.sport.name %></span>
               <div>
                 <h5 class="h4"><%= event.name %></h5>
-                <span><%= event.postal_code %> <%= event.city %></span>
+                <span><%= format_date_prettify(event.start_date) %> - <%= event.postal_code %> <%= event.city %></span>
               </div>
             </div>
           <% end %>
         <% end %>
       </div>
     </div>
-
     <% if @pagy.pages > 1 %>
       <div class="text-center my-6">
         <%== pagy_nav(@pagy) %>
       </div>
     <% end %>
-
   <% else %>
     <div class="bg-white rounded shadow flex flex-col items-center justify-between p-8 lg:flex-row">
       <%= image_tag "empty.svg", class: "mb-4 lg:w-1/2" %>
