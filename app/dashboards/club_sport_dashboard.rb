@@ -60,7 +60,7 @@ class ClubSportDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how club sports are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(club_sport)
-  #   "ClubSport ##{club_sport.id}"
-  # end
+  def display_resource(club_sport)
+    "#{club_sport.sport.name}"
+  end
 end

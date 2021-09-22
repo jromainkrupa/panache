@@ -36,10 +36,10 @@ class SportDashboard < Administrate::BaseDashboard
     id
     name
     image_url
-    created_at
-    updated_at
     clubs
     events
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -48,9 +48,6 @@ class SportDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     name
     image_url
-    club_sports
-    clubs
-    events
   ].freeze
 
   # COLLECTION_FILTERS

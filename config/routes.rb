@@ -1,22 +1,19 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :sports
+      resources :clubs
+      resources :events
+
+      root to: "users#index"
+    end
   root to: "pages#home"
 
   devise_for :users,
   controllers: {
     registrations: "users/registrations"
   }
-
-  namespace :admin do
-    resources :users
-    resources :club_sports
-    resources :sports
-    resources :clubs
-    resources :events
-
-    root to: "users#index"
-  end
   
-  # the policy is set with pundit.
   resources :clubs
   resources :events
 

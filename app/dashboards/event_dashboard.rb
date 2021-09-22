@@ -11,6 +11,10 @@ class EventDashboard < Administrate::BaseDashboard
     organizer: Field::BelongsTo,
     sport: Field::BelongsTo,
     club: Field::BelongsTo,
+    banner_attachment: Field::HasOne,
+    banner_blob: Field::HasOne,
+    photo_attachment: Field::HasOne,
+    photo_blob: Field::HasOne,
     id: Field::Number,
     address: Field::String,
     city: Field::String,
@@ -34,14 +38,10 @@ class EventDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    name
-    address
-    city
-    postal_code
-    sport
     organizer
+    sport
     club
-    id
+    banner_attachment
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -50,6 +50,10 @@ class EventDashboard < Administrate::BaseDashboard
     organizer
     sport
     club
+    banner_attachment
+    banner_blob
+    photo_attachment
+    photo_blob
     id
     address
     city
@@ -74,6 +78,10 @@ class EventDashboard < Administrate::BaseDashboard
     organizer
     sport
     club
+    banner_attachment
+    banner_blob
+    photo_attachment
+    photo_blob
     address
     city
     postal_code

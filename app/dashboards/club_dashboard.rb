@@ -19,15 +19,16 @@ class ClubDashboard < Administrate::BaseDashboard
     website: Field::String,
     city: Field::String,
     postal_code: Field::String,
+    user_id: Field::Number,
     mail: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     facebook_url: Field::String,
     twitter_url: Field::String,
     instagram_url: Field::String,
-    key_number: Field::String,
-    description: Field::String,
-    information: Field::String,
+    key_number: Field::Text,
+    description: Field::Text,
+    information: Field::Text,
     phone_number: Field::String,
     siret: Field::String,
   }.freeze
@@ -41,10 +42,9 @@ class ClubDashboard < Administrate::BaseDashboard
     name
     address
     city
-    postal_code
     admin
-    events
     sports
+    events
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -55,11 +55,9 @@ class ClubDashboard < Administrate::BaseDashboard
     address
     city
     postal_code
-    admin
-    website
     mail
-    events
-    sports
+    website
+    updated_at
     facebook_url
     twitter_url
     instagram_url
@@ -68,21 +66,21 @@ class ClubDashboard < Administrate::BaseDashboard
     information
     phone_number
     siret
+    admin
+    events
+    sports
     created_at
-    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    admin
-    sports
     name
     address
-    website
     city
     postal_code
+    website
     mail
     facebook_url
     twitter_url
@@ -92,7 +90,8 @@ class ClubDashboard < Administrate::BaseDashboard
     information
     phone_number
     siret
-
+    admin
+    sports
   ].freeze
 
   # COLLECTION_FILTERS
