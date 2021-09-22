@@ -1,4 +1,15 @@
 FactoryBot.define do
+  factory :event_sponsor do
+    sponsor { nil }
+    event { nil }
+  end
+
+  factory :sponsor do
+    name { "MyString" }
+    image_url { "MyString" }
+    sponsor_url { "MyString" }
+  end
+
   factory :user do
     first_name   { 'Jean' }
     last_name    { Faker::Name.unique.name }

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :sports
       resources :clubs
       resources :events
+      resources :sponsors
 
       root to: "users#index"
     end

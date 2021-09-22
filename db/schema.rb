@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_17_135801) do
+ActiveRecord::Schema.define(version: 2021_09_22_150829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,15 @@ ActiveRecord::Schema.define(version: 2021_09_17_135801) do
     t.index ["user_id"], name: "index_clubs_on_user_id"
   end
 
+  create_table "event_sponsors", force: :cascade do |t|
+    t.bigint "sponsor_id", null: false
+    t.bigint "event_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_event_sponsors_on_event_id"
+    t.index ["sponsor_id"], name: "index_event_sponsors_on_sponsor_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string "address"
     t.string "city"
@@ -103,6 +112,14 @@ ActiveRecord::Schema.define(version: 2021_09_17_135801) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.string "sponsor_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sports", force: :cascade do |t|
@@ -135,6 +152,8 @@ ActiveRecord::Schema.define(version: 2021_09_17_135801) do
   add_foreign_key "club_sports", "clubs"
   add_foreign_key "club_sports", "sports"
   add_foreign_key "clubs", "users"
+  add_foreign_key "event_sponsors", "events"
+  add_foreign_key "event_sponsors", "sponsors"
   add_foreign_key "events", "clubs"
   add_foreign_key "events", "sports"
   add_foreign_key "events", "users"

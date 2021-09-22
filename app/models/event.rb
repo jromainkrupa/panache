@@ -4,6 +4,8 @@ class Event < ApplicationRecord
   belongs_to :club, optional: true
   has_one_attached :banner
   has_one_attached :photo
+  has_many :event_sponsors
+  has_many :sponsors, through: :event_sponsors
 
   
   validates :name, presence: true

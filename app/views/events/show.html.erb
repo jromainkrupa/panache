@@ -61,8 +61,13 @@
     <span><%= @event.description %></span>
   </div>
   <div class="col-span-2 row-start-2">
-    <h3>Informations</h3>
-    <span>Organisé par <%= @event.club %></span>
+    <h3>Partenaires</h3>
+    <% @event.sponsors.each do |sponsor| %>
+      <%= link_to sponsor.sponsor_url do %>
+        <img src="<%= sponsor.image_url %>" alt="">
+      <% end %>
+    <% end %>
+
     <div class="text-bold">
       <span class="">Du <%= stringify_date(@event.start_date) %></span>
       <span class="">au <%= stringify_date(@event.end_date) %></span>
