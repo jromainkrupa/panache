@@ -10,9 +10,9 @@
       <%= f.submit "Chercher", class: "px-4 bg-yellow-500 text-white font-bold absolute right-1 top-1 bottom-1 rounded-full" %>
     <% end %>
     <div class="md:w-1/2">
-    <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :name, "name", class: "text-gray-700" %></button>
-      <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :sport, "sport", class: "text-gray-700" %></button>
-      <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :city, "city", class: "text-gray-700" %></button>
+    <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :name, "Nom", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :sport, "Sport", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase text-left font-bold text-xs"><%= sortable @clubs, :city, "Ville", class: "text-gray-700" %></button>
     </div>
   </div>
 
@@ -21,7 +21,7 @@
       <div class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-2 xl:gap-x-8">
         <% @clubs.each do |club| %>
           <%= link_to club_path(club) do %>
-          <div class="h-44 bg-cover bg-center relative flex text-black shadow rounded-xl overflow-hidden">
+          <div class="h-44 bg-cover bg-white bg-center relative flex text-black shadow rounded-xl overflow-hidden">
             <% if club.photo.present? %>
               <%= cl_image_tag club.photo.key, class:"w-56 object-cover" %>
             <% end %>

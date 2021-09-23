@@ -1,92 +1,81 @@
 <%= form_with(model: club) do |form| %>
   <%= render "shared/error_messages", resource: form.object %>
-
-  <div class="form-group">
-    <%= form.label :name, "Nom du club" %>
-    <%= form.text_field :name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :address, "Adresse" %>
-    <%= form.text_field :address, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :mail, "Email du club" %>
-    <%= form.email_field :mail, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :city, "Ville" %>
-    <%= form.text_field :city, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= form.label :banner, "Photo de bannière" %>
-    <div class="form-group  mt-1">
-      <%= form.file_field :banner, accept:'image/*', class: "text-white file-btn" %>
+  <div class="bg-white rounded-xl border-2 border-gray-300 p-10 mb-6">
+    <h2 class="h4 mb-4">Informations du club</h2>
+    <div class="form-group">
+      <%= form.label :name, "Nom du club" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :address, "Adresse" %>
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :mail, "Email du club" %>
+      <%= form.email_field :mail, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :city, "Ville" %>
+      <%= form.text_field :city, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :postal_code, "Code postal" %>
+      <%= form.text_field :postal_code, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :website, "Site web" %>
+      <%= form.text_field :website, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :phone_number, "Téléphone du club" %>
+      <%= form.telephone_field :phone_number, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :siret, "N° de SIRET" %>
+      <%= form.text_field :siret, class: "form-control" %>
     </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :photo, "Image du club" %>
-    <div class="form-group  mt-1">
-      <%= form.file_field :photo, accept:'image/*', class: "text-white" %>
+  <div class="bg-white rounded-xl border-2 border-gray-300 p-10 mb-6">
+    <h2 class="h4 mb-4">Informations de votre page</h2>
+    <div class="form-group">
+      <%= form.label :banner, "Photo de bannière" %>
+      <div class="form-group  mt-1">
+        <%= form.file_field :banner, accept:'image/*', class: "text-white file-btn" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :photo, "Image du club" %>
+      <div class="form-group  mt-1">
+        <%= form.file_field :photo, accept:'image/*', class: "text-white" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :facebook_url, "Lien vers facebook" %>
+      <%= form.url_field :facebook_url, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :twitter_url, "Lien vers twitter" %>
+      <%= form.url_field :twitter_url, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :instagram_url, "Lien vers instagram" %>
+      <%= form.url_field :instagram_url, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :information, "Informations" %>
+      <%= form.text_field :information, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :key_number, "Les chiffres clés du club" %>
+      <%= form.text_field :key_number, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :sport, "Sport du club" %>
+      <%= form.collection_select :sport_id, Sport.all(&:name),:id, :name, {}, { multiple: true} %>
     </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :postal_code, "Code postal" %>
-    <%= form.text_field :postal_code, class: "form-control" %>
-  </div>
-
-
-  <div class="form-group">
-    <%= form.label :website, "Site web" %>
-    <%= form.text_field :website, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= form.label :facebook_url, "Lien vers facebook" %>
-    <%= form.url_field :facebook_url, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :twitter_url, "Lien vers twitter" %>
-    <%= form.url_field :twitter_url, class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= form.label :instagram_url, "Lien vers instagram" %>
-    <%= form.url_field :instagram_url, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :information, "Information" %>
-    <%= form.text_field :information, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :key_number, "Les chiffres clés du club" %>
-    <%= form.text_field :key_number, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :phone_number, "Téléphone du club" %>
-    <%= form.telephone_field :phone_number, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :siret, "N° de SIRET" %>
-    <%= form.text_field :siret, class: "form-control" %>
-  </div>
-  
-  <div class="form-group">
-    <%= form.label :sport, "Sport du club" %>
-    <%= form.collection_select :sport_id, Sport.all(&:name),:id, :name, {}, { multiple: true} %>
-  </div>
-
   <div class="form-group flex justify-between">
     <%= form.button class: "btn btn-primary" %>
-
     <% if form.object.persisted? %>
       <%= link_to t("delete"), form.object, class: "btn btn-danger outline", method: :delete, data: { confirm: t("are_you_sure") } %>
     <% end %>
