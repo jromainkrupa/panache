@@ -1,156 +1,154 @@
 <% if current_user %>
   <div class="text-center container mx-auto mt-8">
-    
-  
   </div>
 <% else %>
-
   <% content_for :no_layout do %>
-  true
-<% end %>
-  
-<header class="w-full bg-cover bg-center px-4 lg:px-0 relative" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://images.unsplash.com/photo-1582546997727-4ffbdce14ea3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80)">
-  
-  <nav class="py-2 px-4 lg:px-0 text-sm absolute top-0 left-0 right-0" data-controller="toggle">
-    <div class="container mx-auto flex flex-wrap items-center justify-between">
-      <div class="flex items-center flex-shrink-0 mr-6">
-        <%= link_to root_path do %>
-          <%= render_svg "logo", styles: "w-32 fill-current mb-3 text-white hover:text-gray-800" %>
-          <span class="sr-only">Panache</span>
-        <% end %>
-      </div>
-
-      <div class="block lg:hidden">
-        <button type="button" id="sidebar-open" class="flex items-center text-white lg:hidden focus:outline-none focus:text-gray-700" data-action="click->toggle#toggle touch->toggle#toggle">
-          <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
-        </button>
-      </div>
-
-      <div class="hidden w-full -mt-2 lg:m-0 flex lg:flex flex-col flex-grow md:items-end lg:w-auto" data-toggle-target="toggleable">
-        <div class="md:w-max w-full flex flex-col items-center bg-white lg:bg-transparent p-6 lg:p-0 rounded-xl">
-          <div class="lg:flex-grow">
-            <%= render "shared/left_nav" %>
-          </div>
-
-          <div>
-            <%= nav_link_to "Évènements", events_path, class: 'nav-link' %>
-            <%= nav_link_to "Clubs", clubs_path, class: 'nav-link' %>
-            <%= nav_link_to t("log_in"), new_user_session_path, class: 'text-white text-base font-medium hover:text-white bg-yellow-500 inline-block px-6 py-3 rounded' %>
-            <%#= nav_link_to "Vous êtes organisateur ?", pros_path, class: 'text-white text-base font-medium hover:text-white bg-yellow-500 inline-block px-6 py-3 rounded' %>
-
-            <% if user_signed_in? %>
-
-              <!-- Mobile menu -->
-              <div class="lg:hidden pt-4 pb-3 border-t border-gray-200">
-                <div class="flex items-center px-4">
-                  <div class="flex-shrink-0">
-                    <%#= account_avatar current_account, include_user: true, class: "rounded-full h-10 w-10" %>
+    true
+  <% end %>
+  <header class="w-full bg-cover bg-center px-4 lg:px-0 relative" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://images.unsplash.com/photo-1582546997727-4ffbdce14ea3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80)">
+    <nav class="py-2 px-4 lg:px-0 text-sm absolute top-0 left-0 right-0" data-controller="toggle">
+      <div class="container mx-auto flex flex-wrap items-center justify-between">
+        <div class="flex items-center flex-shrink-0 mr-6">
+          <%= link_to root_path do %>
+            <%= render_svg "logo", styles: "w-32 fill-current mb-3 text-white hover:text-gray-800" %>
+            <span class="sr-only">Panache</span>
+          <% end %>
+        </div>
+        <div class="block lg:hidden">
+          <button type="button" id="sidebar-open" class="flex items-center text-white lg:hidden focus:outline-none focus:text-gray-700" data-action="click->toggle#toggle touch->toggle#toggle">
+            <svg class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg>
+          </button>
+        </div>
+        <div class="hidden w-full -mt-2 lg:m-0 flex lg:flex flex-col flex-grow md:items-end lg:w-auto" data-toggle-target="toggleable">
+          <div class="md:w-max w-full flex flex-col items-center bg-white lg:bg-transparent p-6 lg:p-0 rounded-xl">
+            <div class="lg:flex-grow">
+              <%= render "shared/left_nav" %>
+            </div>
+            <div>
+              <%= nav_link_to "Évènements", events_path, class: 'nav-link' %>
+              <%= nav_link_to "Clubs", clubs_path, class: 'nav-link' %>
+              <%= nav_link_to t("log_in"), new_user_session_path, class: 'text-white text-base font-medium hover:text-white bg-yellow-500 inline-block px-6 py-3 rounded' %>
+              <%#= nav_link_to "Vous êtes organisateur ?", pros_path, class: 'text-white text-base font-medium hover:text-white bg-yellow-500 inline-block px-6 py-3 rounded' %>
+              <% if user_signed_in? %>
+                <!-- Mobile menu -->
+                <div class="lg:hidden pt-4 pb-3 border-t border-gray-200">
+                  <div class="flex items-center px-4">
+                    <div class="flex-shrink-0">
+                      <%#= account_avatar current_account, include_user: true, class: "rounded-full h-10 w-10" %>
+                    </div>
+                    <div class="ml-3">
+                      <div class="text-base font-medium text-white"><%= current_user.first_name %></div>
+                    </div>
                   </div>
-                  <div class="ml-3">
-                    <div class="text-base font-medium text-white"><%= current_user.first_name %></div>
+                  <div class="mt-3 space-y-1">
+                    <%= link_to t(".profile"), edit_user_registration_path, class: 'block px-4 py-2 text-base font-medium text-white hover:text-gray-800 hover:bg-gray-100' %>
+                    <% if current_user.is_admin? %>
+                      <%#= link_to t(".admin"), admin_root_path, class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100', data: { turbo: false } %>
+                    <% end %>
+                    <%= link_to t(".sign_out"), destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-base font-medium text-white hover:text-gray-800 hover:bg-gray-100' %>
                   </div>
                 </div>
-                <div class="mt-3 space-y-1">
-                  <%= link_to t(".profile"), edit_user_registration_path, class: 'block px-4 py-2 text-base font-medium text-white hover:text-gray-800 hover:bg-gray-100' %>
-
-                  <% if current_user.is_admin? %>
-                    <%#= link_to t(".admin"), admin_root_path, class: 'block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100', data: { turbo: false } %>
-                  <% end %>
-                  <%= link_to t(".sign_out"), destroy_user_session_path, method: :delete, class: 'block px-4 py-2 text-base font-medium text-white hover:text-gray-800 hover:bg-gray-100' %>
-                </div>
-              </div>
-
-              <!-- Main menu -->
-              <div class="hidden lg:inline-flex z-10 items-center leading-none text-white no-underline align-middle rounded hover:text-gray-800 hover:bg-white">
-                <div class="relative" data-controller="dropdown">
-                  <div data-action="click->dropdown#toggle click@window->dropdown#hide touch->dropdown#toggle touch@window->dropdown#hide" role="button" class="inline-block select-none" aria-label="Profile Menu">
-                    <span class="flex items-center text-white appearance-none">
-                      <img src="https://eu.ui-avatars.com/api/?rounded=true&name=<%= current_user.first_name  + current_user.last_name%>" class="rounded-full h-10 w-10">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="1rem" height="1rem" class="w-4 h-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
-                    </span>
-                  </div>
-                  <div data-dropdown-target="menu" class="z-20 hidden mt-2 lg:absolute lg:right-0 dropdown-menu">
-                    <div class="overflow-hidden bg-white border rounded shadow-sm">
-                      <%= link_to t(".profile"), edit_user_registration_path, class: 'no-underline block px-6 py-3 text-white bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
-
-                      <% if current_user.is_admin? %>
-                        <div class="px-6 py-3 text-xs font-bold text-white uppercase bg-white border-t"><%= t(".admin") %></div>
-                        <%#= link_to t(".dashboard"), admin_root_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap', data: { turbo: false } %>
-                        <%#= link_to 'Sidekiq', admin_sidekiq_web_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap', target: :_blank, data: { turbo: false } if defined?(::Sidekiq) %>
-                      <% end %>
-
-                      <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, class: 'w-full text-left cursor-pointer px-6 py-3 border-t text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
+                <!-- Main menu -->
+                <div class="hidden lg:inline-flex z-10 items-center leading-none text-white no-underline align-middle rounded hover:text-gray-800 hover:bg-white">
+                  <div class="relative" data-controller="dropdown">
+                    <div data-action="click->dropdown#toggle click@window->dropdown#hide touch->dropdown#toggle touch@window->dropdown#hide" role="button" class="inline-block select-none" aria-label="Profile Menu">
+                      <span class="flex items-center text-white appearance-none">
+                        <img src="https://eu.ui-avatars.com/api/?rounded=true&name=<%= current_user.first_name  + current_user.last_name%>" class="rounded-full h-10 w-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="1rem" height="1rem" class="w-4 h-4"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+                      </span>
+                    </div>
+                    <div data-dropdown-target="menu" class="z-20 hidden mt-2 lg:absolute lg:right-0 dropdown-menu">
+                      <div class="overflow-hidden bg-white border rounded shadow-sm">
+                        <%= link_to t(".profile"), edit_user_registration_path, class: 'no-underline block px-6 py-3 text-white bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
+                        <% if current_user.is_admin? %>
+                          <div class="px-6 py-3 text-xs font-bold text-white uppercase bg-white border-t"><%= t(".admin") %></div>
+                          <%#= link_to t(".dashboard"), admin_root_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap', data: { turbo: false } %>
+                          <%#= link_to 'Sidekiq', admin_sidekiq_web_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white  hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap', target: :_blank, data: { turbo: false } if defined?(::Sidekiq) %>
+                        <% end %>
+                        <%= button_to t(".sign_out"), destroy_user_session_path, method: :delete, class: 'w-full text-left cursor-pointer px-6 py-3 border-t text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-            <% else %>
-              <%#= link_to t(".log_in"), new_user_session_path, class: 'nav-link' %>
-              <%#= link_to t(".sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
-            <% end %>
+              <% else %>
+                <%#= link_to t(".log_in"), new_user_session_path, class: 'nav-link' %>
+                <%#= link_to t(".sign_up"), new_user_registration_path, class: 'btn btn-primary' %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
+    </nav>
+    <div class="flex flex-col justify-center items-center py-56">
+      <h1 class="text-white text-center mb-6 text-4xl lg:text-5xl md:w-2/3 lg:w-7/12 w-full">Ajoutez votre événements sur Panache</h1>
+      <p class="mb-4 text-xl text-white text-center md:w-2/3 lg:w-7/12 w-full">
+        Vous êtes un club ou un professionnel du sport, vous organisez des événements sportifs, alors vous êtes au bon endroit. 
+      </p>
+      <%= link_to t("sign_up"), new_user_registration_path, class:'btn btn-primary w-36', style:'justify-content:center;' %>
     </div>
-  </nav>
-
-  <div class="flex flex-col justify-center items-center py-56">
-    <h1 class="text-white text-center mb-6 text-4xl lg:text-5xl md:w-2/3 lg:w-7/12 w-full">Ajoutez votre événements sur Panache</h1>
-    <p class="mb-4 text-xl text-white text-center md:w-2/3 lg:w-7/12 w-full">
-      Vous êtes un club ou un professionnel du sport, vous organisez des événements sportifs, alors vous êtes au bon endroit. 
-    </p>
-    <%= link_to t("sign_up"), new_user_registration_path, class:'btn btn-primary w-36', style:'justify-content:center;' %>
-  </div>
-
-</header>
-<main>
-  <section class="bg-yellow-500 relative mb-24 px-4">
-    <div class="flex flex-col items-center gap-10">
-      <h2 class="text-3xl text-center text-white pt-6 mb-4">Rendre les événements sportifs accessibles à tous</h2>
+  </header>
+  <main>
+    <section class="bg-yellow-500 relative mb-24 px-4">
+      <div class="flex flex-col items-center gap-10">
+        <h2 class="text-3xl text-center text-white pt-6 mb-4">Rendre les événements sportifs accessibles à tous</h2>
+        <div class="md:flex flex-wrap gap-4 justify-between container">
+          <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center text-white">
+            <svg class="h-32" viewBox="0 0 165 102" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M56.5385 5.82353C56.5385 4.26415 57.7474 3 59.2385 3H105.762C107.253 3 108.462 4.26415 108.462 5.82353V15.4625H114.9C119.373 15.4625 123 19.2549 123 23.9331V28.9611C123 34.8829 120.461 40.4925 116.082 44.2467L107.832 51.3179C105.85 60.2476 99.3653 67.3725 91.0153 69.9346V77.775H91.8463C97.8106 77.775 102.646 82.8313 102.646 89.0691V96.1765C102.646 97.7356 101.437 99 99.9463 99H65.0538C63.5626 99 62.3538 97.7356 62.3538 96.1765V89.0691C62.3538 82.8313 67.1892 77.775 73.1537 77.775H73.9847V69.9346C65.6348 67.3725 59.1505 60.2482 57.1677 51.3179L48.9185 44.2467C44.5391 40.4925 42 34.8829 42 28.9611V23.9331C42 19.2549 45.6265 15.4625 50.1 15.4625H56.5385V5.82353ZM56.5385 21.1096H50.1C48.6088 21.1096 47.4 22.3737 47.4 23.9331V28.9611C47.4 33.1909 49.2136 37.1979 52.3418 39.8792L56.5385 43.477V21.1096ZM79.3847 70.9149V77.775H85.6153V70.9149C85.1347 70.9443 84.6497 70.9595 84.1616 70.9595H80.8384C80.3503 70.9595 79.8659 70.9443 79.3847 70.9149ZM108.462 43.477L112.658 39.8792C115.786 37.1979 117.6 33.1909 117.6 28.9611V23.9331C117.6 22.3736 116.391 21.1096 114.9 21.1096H108.462V43.477ZM61.9385 8.64706V45.5478C61.9385 56.4635 70.4003 65.3125 80.8384 65.3125H84.1616C94.5998 65.3125 103.062 56.4635 103.062 45.5478V8.64706H61.9385ZM73.1537 83.422C70.1715 83.422 67.7538 85.9502 67.7538 89.0691V93.3529H97.2463V89.0691C97.2463 85.9502 94.8282 83.422 91.8463 83.422H73.1537Z" fill="currentColor"/>
+              <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="165" height="102">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M165 0H0V102H165V0ZM59.2385 3C57.7474 3 56.5385 4.26415 56.5385 5.82353V15.4625H50.1C45.6265 15.4625 42 19.2549 42 23.9331V28.9611C42 34.8829 44.5391 40.4925 48.9185 44.2467L57.1677 51.3179C59.1505 60.2482 65.6348 67.3725 73.9847 69.9346V77.775H73.1537C67.1892 77.775 62.3538 82.8313 62.3538 89.0691V96.1765C62.3538 97.7356 63.5626 99 65.0538 99H99.9463C101.437 99 102.646 97.7356 102.646 96.1765V89.0691C102.646 82.8313 97.8106 77.775 91.8463 77.775H91.0153V69.9346C99.3653 67.3725 105.85 60.2476 107.832 51.3179L116.082 44.2467C120.461 40.4925 123 34.8829 123 28.9611V23.9331C123 19.2549 119.373 15.4625 114.9 15.4625H108.462V5.82353C108.462 4.26415 107.253 3 105.762 3H59.2385ZM79.3847 77.775V70.9149C79.8659 70.9443 80.3503 70.9595 80.8384 70.9595H84.1616C84.6497 70.9595 85.1347 70.9443 85.6153 70.9149V77.775H79.3847ZM67.7538 89.0691C67.7538 85.9502 70.1715 83.422 73.1537 83.422H91.8463C94.8282 83.422 97.2463 85.9502 97.2463 89.0691V93.3529H67.7538V89.0691Z" fill="#C4C4C4"/>
+              </mask>
+              <g mask="url(#mask0)">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9488 21.1176C11.9488 19.9481 12.8591 19 13.9821 19H49.018C50.1408 19 51.0513 19.9481 51.0513 21.1176V28.3469H55.9C59.2688 28.3469 62 31.1912 62 34.6998V38.4708C62 42.9122 60.0879 47.1194 56.7898 49.935L50.5775 55.2384C49.0843 61.9357 44.201 67.2794 37.9127 69.2009V75.0812H38.5386C43.0302 75.0812 46.6719 78.8735 46.6719 83.5518V88.8824C46.6719 90.0517 45.7614 91 44.6386 91H18.3615C17.2385 91 16.3282 90.0517 16.3282 88.8824V83.5518C16.3282 78.8735 19.9696 75.0812 24.4614 75.0812H25.0873V69.2009C18.7991 67.2794 13.9158 61.9361 12.4226 55.2384L6.21021 49.935C2.91215 47.1194 1 42.9122 1 38.4708V34.6998C1 31.1912 3.73105 28.3469 7.1 28.3469H11.9488V21.1176ZM11.9488 32.5822H7.1C5.97703 32.5822 5.06667 33.5303 5.06667 34.6998V38.4708C5.06667 41.6432 6.43246 44.6484 8.78824 46.6594L11.9488 49.3577V32.5822ZM29.1539 69.9362V75.0812H33.8461V69.9362C33.4841 69.9582 33.1189 69.9697 32.7513 69.9697H30.2487C29.8811 69.9697 29.5163 69.9582 29.1539 69.9362ZM51.0513 49.3577L54.2119 46.6594C56.5673 44.6484 57.9333 41.6432 57.9333 38.4708V34.6998C57.9333 33.5302 57.0228 32.5822 55.9 32.5822H51.0513V49.3577ZM16.0154 23.2353V50.9108C16.0154 59.0976 22.3879 65.7344 30.2487 65.7344H32.7513C40.6122 65.7344 46.9846 59.0976 46.9846 50.9108V23.2353H16.0154ZM24.4614 79.3165C22.2156 79.3165 20.3949 81.2127 20.3949 83.5518V86.7647H42.6053V83.5518C42.6053 81.2127 40.7842 79.3165 38.5386 79.3165H24.4614Z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M112.949 21.1176C112.949 19.9481 113.859 19 114.982 19H150.018C151.141 19 152.051 19.9481 152.051 21.1176V28.3469H156.9C160.269 28.3469 163 31.1912 163 34.6998V38.4708C163 42.9122 161.088 47.1194 157.79 49.935L151.578 55.2384C150.084 61.9357 145.201 67.2794 138.913 69.2009V75.0812H139.539C144.03 75.0812 147.672 78.8735 147.672 83.5518V88.8824C147.672 90.0517 146.761 91 145.639 91H119.362C118.239 91 117.328 90.0517 117.328 88.8824V83.5518C117.328 78.8735 120.97 75.0812 125.461 75.0812H126.087V69.2009C119.799 67.2794 114.916 61.9361 113.423 55.2384L107.21 49.935C103.912 47.1194 102 42.9122 102 38.4708V34.6998C102 31.1912 104.731 28.3469 108.1 28.3469H112.949V21.1176ZM112.949 32.5822H108.1C106.977 32.5822 106.067 33.5303 106.067 34.6998V38.4708C106.067 41.6432 107.432 44.6484 109.788 46.6594L112.949 49.3577V32.5822ZM130.154 69.9362V75.0812H134.846V69.9362C134.484 69.9582 134.119 69.9697 133.751 69.9697H131.249C130.881 69.9697 130.516 69.9582 130.154 69.9362ZM152.051 49.3577L155.212 46.6594C157.567 44.6484 158.933 41.6432 158.933 38.4708V34.6998C158.933 33.5302 158.023 32.5822 156.9 32.5822H152.051V49.3577ZM117.015 23.2353V50.9108C117.015 59.0976 123.388 65.7344 131.249 65.7344H133.751C141.612 65.7344 147.985 59.0976 147.985 50.9108V23.2353H117.015ZM125.461 79.3165C123.216 79.3165 121.395 81.2127 121.395 83.5518V86.7647H143.605V83.5518C143.605 81.2127 141.784 79.3165 139.539 79.3165H125.461Z" fill="currentColor"/>
+              </g>
+            </svg>
+            <%#= image_tag "https://images.unsplash.com/photo-1593642633279-1796119d5482?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class:"w-32 h-32 object-cover" %>
+            <h3 class="mt-4 font-bold">Toutes les pratiques</h3>
+            <p>Que ce soit au niveau amateur ou professionnel, pour le loisir ou la compétition.</p>
+          </div>
+          <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center text-white">
+            <svg viewBox="0 0 95 93" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-32">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M92.4544 3.56233C93.7312 3.85304 94.5674 5.07974 94.3712 6.37445C93.9368 9.2418 92.9599 13.9626 91.4264 18.9475C89.9027 23.9005 87.7725 29.305 84.9627 33.4116C84.5449 34.0222 84.2093 35.1445 84.114 37.0359C84.0213 38.8756 84.1666 41.1029 84.4115 43.6686C84.5016 44.6119 84.6054 45.5991 84.7127 46.6188C85.1733 50.9964 85.6967 55.9718 85.4586 60.6276C85.1637 66.3962 83.6862 72.2965 78.9785 76.361C74.2767 80.4204 66.9405 82.1436 56.1331 80.9857C55.1648 80.882 54.3449 80.2254 54.032 79.3033C53.7191 78.3811 53.9701 77.3612 54.6753 76.6896C56.3072 75.1353 58.4351 72.6424 59.6205 70.2428C60.215 69.0392 60.4729 68.0563 60.4667 67.3371C60.4615 66.7318 60.2827 66.3164 59.8163 65.9348C58.9659 65.239 58.6695 64.0695 59.0858 63.0526C60.7502 58.988 62.6354 53.0341 63.0322 48.2675C63.2347 45.8359 63.0124 44.098 62.5171 43.0894C62.2951 42.6372 62.0509 42.3972 61.8083 42.2558C61.5619 42.1122 61.1347 41.9642 60.3776 41.9975C55.6647 42.2048 52.4353 41.7493 50.2776 40.9216C48.3084 40.1661 46.3994 38.7079 46.3994 36.4999C46.3994 35.8304 46.6679 35.1889 47.1449 34.719C47.6218 34.2492 48.2673 33.9902 48.9367 34.0002C59.595 34.1593 82.3831 28.5208 89.5091 5.26744C89.8928 4.01542 91.1776 3.27162 92.4544 3.56233ZM11.957 17.5201C12.2291 17.786 12.5154 18.0675 12.8158 18.3653C14.6883 20.2219 16.905 22.532 18.8808 25.1006C22.6627 30.0171 26.3367 36.8961 23.1563 43.5747C20.7607 48.6056 20.3519 52.8884 20.5479 55.7309C20.5777 55.7242 20.6077 55.7178 20.6377 55.7115C22.2144 55.3841 23.7298 55.7818 24.9331 56.3125C25.5919 56.6031 26.2354 56.9682 26.8487 57.3753C27.6895 54.3308 29.5175 52.1087 31.7772 50.6058C33.8748 49.2107 36.254 48.4879 38.3762 48.1796C38.3048 47.4864 38.2615 46.7687 38.2367 46.0646C38.1621 43.9519 38.245 41.512 38.4737 39.1921C38.7001 36.8955 39.0813 34.5917 39.6486 32.8C39.9268 31.9211 40.2984 31.0058 40.8219 30.2591C41.1719 29.7598 41.7891 29.0646 42.7053 28.7165C39.6995 28.0838 36.604 27.3525 33.5434 26.5194C28.6215 25.1797 23.7407 23.5636 19.4473 21.6475C16.7155 20.4284 14.1563 19.0594 11.957 17.5201ZM60.2568 26.5038C54.0367 25.8282 44.2549 24.2532 34.8566 21.695C30.0891 20.3973 25.4696 18.8598 21.485 17.0816C17.4698 15.2897 14.2568 13.3218 12.1671 11.2321C9.1872 8.25227 7.01627 6.43232 5.47361 5.67171C5.06271 5.46911 4.55237 5.26694 3.98547 5.19388C3.40376 5.1189 2.56174 5.16073 1.78238 5.71278C0.998999 6.26767 0.68739 7.04835 0.573558 7.60759C0.463519 8.1482 0.496117 8.65468 0.547748 9.029C0.739792 10.4213 1.5353 12.1574 2.29547 13.559C3.09768 15.0381 4.0996 16.5751 5.00116 17.6269C5.56903 18.2894 6.55888 19.2496 7.67037 20.3278C8.19542 20.8371 8.74762 21.3728 9.2953 21.9158C11.1103 23.7154 13.1436 25.8428 14.9177 28.1492C18.6357 32.9827 20.4617 37.6037 18.642 41.4251C14.3676 50.4014 15.2881 57.9206 16.6013 60.9847C16.9784 61.8646 17.8249 62.4519 18.7812 62.4971C19.7374 62.5423 20.6355 62.0375 21.0939 61.197C21.3894 60.6554 21.6005 60.6169 21.6491 60.6081C21.6512 60.6077 21.6544 60.607 21.6544 60.607C21.8132 60.5741 22.2103 60.5764 22.9154 60.8873C24.346 61.5183 25.9609 62.9383 27.0178 64.1462C27.7278 64.9576 28.8779 65.2224 29.8712 64.8032C30.8645 64.384 31.4772 63.3753 31.3913 62.3005C31.0641 58.2107 32.6354 56.0399 34.5462 54.769C36.6462 53.3723 39.4058 52.9278 41.3066 52.9982C42.1628 53.0299 42.9756 52.621 43.4604 51.9145C43.9452 51.2081 44.0345 50.3026 43.697 49.5151C43.5262 49.1165 43.3043 47.8919 43.2335 45.8883C43.1675 44.0167 43.2408 41.8003 43.4496 39.6827C43.6607 37.5418 43.9982 35.6268 44.4154 34.3091C44.5314 33.9427 44.6395 33.6686 44.73 33.4717C46.3314 33.3801 48.9506 33.0773 51.5834 32.7419C54.8303 32.3282 58.3453 31.8306 60.6332 31.4925L60.7655 31.4729C62.1313 31.2706 63.0745 29.9993 62.8722 28.6335C62.6809 27.3427 61.535 26.4294 60.2568 26.5038ZM62.135 37.1316C62.9123 37.2773 63.6479 37.5406 64.3266 37.9363C65.5625 38.6568 66.4283 39.7106 67.0052 40.8855C68.1079 43.131 68.2399 45.9807 68.015 48.6824C67.607 53.5827 65.8985 59.2737 64.2946 63.4756C65.096 64.6317 65.4549 65.9509 65.4665 67.294C65.4822 69.1103 64.8714 70.9024 64.1034 72.4571C63.4364 73.8073 62.5758 75.1275 61.6625 76.3349C68.7853 76.4469 73.0864 74.8423 75.711 72.5764C78.8939 69.8284 80.1977 65.6037 80.4652 60.3723C80.6812 56.1473 80.2126 51.6713 79.7566 47.3163C79.645 46.2497 79.5341 45.1904 79.4342 44.1437C79.1869 41.5532 79.008 39.0149 79.1203 36.7843C79.2301 34.6053 79.6289 32.3526 80.8361 30.5882C82.074 28.779 83.1946 26.6072 84.1913 24.2707C77.6295 31.1688 69.4631 35.0955 62.135 37.1316ZM21.916 62.7015C22.9292 62.268 24.1067 62.5491 24.8149 63.3934C28.5514 67.8485 39.996 75.0739 55.0979 65.8654C56.1304 65.2358 57.4656 65.4356 58.2687 66.3399C59.0717 67.2441 59.1124 68.5935 58.3652 69.5445C57.3388 70.8508 55.5474 72.7751 53.397 74.4481C51.661 75.7987 49.4661 77.1637 47.1003 77.7409C46.3742 79.631 45.4566 83.6385 46.3651 89.0889C46.4822 89.7911 46.2943 90.51 45.8486 91.0651C45.4028 91.6203 44.7415 91.9591 44.0306 91.9965C42.3877 92.083 39.8439 92.1358 37.525 92.0087C36.372 91.9455 35.2034 91.8343 34.2028 91.6401C33.7034 91.5432 33.1864 91.4145 32.7075 91.2346C32.2685 91.0696 31.649 90.785 31.1316 90.2677C30.6173 89.7534 30.3525 89.0406 30.4062 88.3153C30.569 86.1177 30.7137 82.7859 30.6256 79.9398C30.5812 78.5039 30.4798 77.2869 30.3198 76.4282C30.2824 76.2271 30.2456 76.0679 30.2128 75.9454C29.0213 75.3227 27.0846 74.2238 25.2675 72.7585C23.23 71.1153 20.7804 68.5675 20.4147 65.276C20.293 64.1807 20.9028 63.135 21.916 62.7015ZM35.0649 74.7366C35.132 74.9966 35.1878 75.2577 35.2352 75.5123C35.4648 76.7443 35.576 78.2585 35.6232 79.7851C35.6951 82.1084 35.6243 84.6818 35.5119 86.7942C36.1412 86.894 36.9217 86.9681 37.7987 87.0162C38.8733 87.0751 40.0186 87.0912 41.0848 87.0821C40.6615 81.7347 41.6825 77.5797 42.7204 75.2561C39.9803 75.4598 37.4172 75.2422 35.0649 74.7366Z" fill="currentColor"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M40.3994 63C41.504 63 42.3994 62.1046 42.3994 61C42.3994 59.8954 41.504 59 40.3994 59C39.2948 59 38.3994 59.8954 38.3994 61C38.3994 62.1046 39.2948 63 40.3994 63ZM40.3994 68C44.2654 68 47.3994 64.866 47.3994 61C47.3994 57.134 44.2654 54 40.3994 54C36.5334 54 33.3994 57.134 33.3994 61C33.3994 64.866 36.5334 68 40.3994 68Z" fill="currentColor"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M67.3994 20C69.6086 20 71.3994 18.2091 71.3994 16C71.3994 13.7909 69.6086 12 67.3994 12C65.1903 12 63.3994 13.7909 63.3994 16C63.3994 18.2091 65.1903 20 67.3994 20ZM67.3994 25C72.37 25 76.3994 20.9706 76.3994 16C76.3994 11.0294 72.37 7 67.3994 7C62.4289 7 58.3994 11.0294 58.3994 16C58.3994 20.9706 62.4289 25 67.3994 25Z" fill="currentColor"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M37.3994 15C40.1608 15 42.3994 12.7614 42.3994 10C42.3994 7.23858 40.1608 5 37.3994 5C34.638 5 32.3994 7.23858 32.3994 10C32.3994 12.7614 34.638 15 37.3994 15ZM37.3994 20C42.9223 20 47.3994 15.5228 47.3994 10C47.3994 4.47715 42.9223 0 37.3994 0C31.8766 0 27.3994 4.47715 27.3994 10C27.3994 15.5228 31.8766 20 37.3994 20Z" fill="currentColor"/>
+            </svg>
+            <h3 class="mt-4 font-bold">Tous les publics</h3>
+            <p>Petits et grands, hommes et femmes, sport adaptés, sport santé, notre plateforme est ouverte à tous les publics</p>
+          </div>
+          <div class="md:w-1/4 flex flex-col items-center text-center text-white">
+            <svg class="h-32" viewBox="0 0 93 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M92.4058 23C91.1058 20.8 88.3058 20.7 85.5058 20.6C84.0058 20.5 82.5058 20.5 81.3058 20.2C76.9058 19 65.2058 11.3 62.1058 7.4C61.8058 7 61.5058 6.7 61.2058 6.2C59.9058 4.6 58.4058 2.5 55.9058 1.5C53.1058 0.3 49.9058 0.1 47.7058 0C45.8058 0 44.3058 1.4 44.1058 3.3C43.8058 6.6 42.7058 10.4 40.4058 11.3C37.8058 12.3 36.1058 13.8 35.0058 14.8C33.6058 16 33.2058 16.3 32.2058 16.2C31.9058 16.1 31.1058 15.3 30.6058 14.8C29.9058 14.1 29.2058 13.4 28.3058 12.9C26.8058 12.1 24.9058 12.1 22.6058 13C21.0058 13.6 20.0058 15.3 20.3058 17C20.5058 18.3 20.9058 20.5 21.5058 22.7C19.6058 22.6 17.6058 22.2 16.4058 20.9C14.2058 18.5 9.70581 18.6 2.90581 21.2C1.10581 21.9 -0.0941903 23.7 0.00580969 25.7C0.30581 29.9 1.90581 32.7 4.70581 33.7C14.9058 37.4 20.5058 51.6 20.5058 51.6C22.0058 57.2 20.7058 66.7 16.5058 79.8C15.8058 81.8 16.6058 84 18.4058 85.3C24.0058 89.3 30.7058 90.3 35.3058 90.4C36.5058 90.4 37.7058 90.9 38.5058 91.6C41.7058 94.4 45.2058 95 48.9058 95C49.8058 95 50.7058 95 51.7058 94.9C52.8058 94.8 53.9058 94.3 54.6058 93.5C55.3058 92.7 55.6058 91.5 55.5058 90.5C55.1058 86.8 56.6058 85.8 57.1058 85.5C60.0058 83.6 66.5058 84.7 70.6058 86.9C76.8058 90.3 79.4058 88.6 82.6058 85.7C83.4058 85 84.1058 84.3 85.1058 83.6C89.2058 80.7 89.5058 78.1 89.1058 76.5C88.6058 74.6 86.9058 73.3 84.4058 72.9C83.6058 71.9 83.8058 67.5 84.5058 66.3C86.4058 63.8 85.8058 60.4 84.6058 55.1C83.6058 50.8 81.7058 49.5 79.7058 49.3C81.2058 47.2 83.8058 44.7 86.0058 43.6C88.9058 42.2 89.4058 39 89.9058 36C90.3058 33.8 90.7058 31.2 91.9058 28.7C92.3058 27.8 93.6058 25.2 92.4058 23ZM87.7058 26.5C86.1058 29.7 85.6058 32.7 85.2058 35.2C84.9058 37.2 84.6058 39 83.9058 39.3C80.7058 40.9 73.4058 47.2 73.8058 52.2C73.8058 52.9 74.2058 53.5 74.7058 53.9C75.2058 54.3 75.9058 54.5 76.5058 54.4C77.0058 54.3 77.4058 54.2 77.8058 54.1C78.3058 54 79.0058 53.8 79.2058 53.8C79.2058 53.8 79.6058 54.2 80.1058 56C81.0058 59.8 81.4058 62.5 80.8058 63.2C79.3058 65.1 78.6058 70.9 80.0058 74.2C81.0058 76.6 82.7058 77.2 83.7058 77.3C84.1058 77.4 84.3058 77.4 84.5058 77.5C84.3058 77.8 83.8058 78.5 82.4058 79.5C81.2058 80.3 80.3058 81.2 79.5058 81.9C77.1058 84.1 76.6058 84.5 72.9058 82.5C68.6058 80.1 59.8058 77.7 54.5058 81.3C52.6058 82.6 50.5058 85.1 50.8058 90C46.5058 90.2 44.0058 89.8 41.7058 87.8C40.0058 86.3 37.8058 85.5 35.5058 85.4C31.6058 85.3 25.9058 84.5 21.1058 81C25.7058 66.8 27.0058 56.7 25.1058 49.9C24.7058 49.5 18.6058 33.7 6.30581 29.3C5.50581 29 4.90581 27.6 4.80581 25.6C9.90581 23.7 12.5058 23.8 12.9058 24.1C16.1058 27.7 21.5058 27.5 24.8058 27.4C25.6058 27.4 26.3058 27 26.7058 26.3C27.1058 25.6 27.2058 24.9 26.9058 24.1C26.0058 21.7 25.4058 18.8 25.1058 17.1C25.7058 17 26.0058 16.9 26.0058 17C26.3058 17.2 26.8058 17.7 27.2058 18.1C28.3058 19.2 29.7058 20.6 31.6058 20.8C34.7058 21.1 36.5058 19.6 38.0058 18.3C39.1058 17.4 40.2058 16.4 42.1058 15.6C46.7058 13.8 48.1058 8.3 48.6058 4.6C50.1058 4.7 52.2058 4.9 54.0058 5.7C55.3058 6.3 56.4058 7.7 57.4058 9C57.8058 9.5 58.1058 9.9 58.4058 10.3C62.2058 14.9 74.7058 23.2 80.0058 24.6C81.8058 25.1 83.6058 25.1 85.3058 25.2C86.2058 25.2 87.4058 25.3 88.1058 25.4C88.0058 25.8 87.9058 26.1 87.7058 26.5Z" fill="currentColor"/>
+            </svg>
+            <h3 class="mt-4 font-bold">Toutes les échelles</h3>
+            <p>Que ce soit au niveau local, national ou international.</p>
+          </div>
+        </div>
+        <%= link_to t("sign_up"), new_user_registration_path, class:'btn btn-white gray w-36', style:'justify-content:center;' %>
+      </div>
+      <div class="bg-yellow-500 right-0 left-0 h-28 -bottom-10 absolute" style="transform: skewY(-2deg); z-index: -20;"></div>
+    </section>
+    <section class="flex flex-col items-center gap-10 mb-24 px-4">
+      <h2 class="text-3xl text-center pt-6 mb-4">Un fonctionnement simple et rapide</h2>
       <div class="md:flex flex-wrap gap-4 justify-between container">
-        <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center text-white">
-          <%= image_tag "https://images.unsplash.com/photo-1593642633279-1796119d5482?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class:"w-32 h-32 object-cover" %>
-          <h3 class="mt-4 font-bold">Toutes les pratiques</h3>
+        <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center">
+          <%= image_tag "pratiques.png", class:"object-cover rounded-xl", style:"width:300px, height:200px"  %>
+          <h3 class="mt-4 font-bold text-yellow-600">Toutes les pratiques</h3>
           <p>Que ce soit au niveau amateur ou professionnel, pour le loisir ou la compétition.</p>
         </div>
-        <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center text-white">
-          <%= image_tag "https://images.unsplash.com/photo-1593642633279-1796119d5482?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class:"w-32 h-32 object-cover" %>
-          <h3 class="mt-4 font-bold">Tous les publics</h3>
+        <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center">
+          <%= image_tag "publics.png", class:"object-cover rounded-xl", style:"width:300px, height:200px"  %>
+          <h3 class="mt-4 font-bold text-yellow-600">Tous les publics</h3>
           <p>Petits et grands, hommes et femmes, sport adaptés, sport santé, notre plateforme est ouverte à tous les publics</p>
         </div>
-        <div class="md:w-1/4 flex flex-col items-center text-center text-white">
-          <%= image_tag "https://images.unsplash.com/photo-1593642633279-1796119d5482?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class:"w-32 h-32 object-cover" %>
-          <h3 class="mt-4 font-bold">Toutes les échelles</h3>
+        <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center">
+          <%= image_tag "echelles.png", class:"object-cover rounded-xl", style:"width:300px, height:200px" %>
+          <h3 class="mt-4 font-bold text-yellow-600">Toutes les échelles</h3>
           <p>Que ce soit au niveau local, national ou international.</p>
         </div>
       </div>
-      <%= link_to t("sign_up"), new_user_registration_path, class:'btn btn-white gray w-36', style:'justify-content:center;' %>
-    </div>
-    <div class="bg-yellow-500 right-0 left-0 h-28 -bottom-10 absolute" style="transform: skewY(-2deg); z-index: -20;"></div>
-  </section>
-  
-  <section class="flex flex-col items-center gap-10 mb-24 px-4">
-    <h2 class="text-3xl text-center pt-6 mb-4">Un fonctionnement simple et rapide</h2>
-    <div class="md:flex flex-wrap gap-4 justify-between container">
-      <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center">
-        <%= image_tag "https://images.unsplash.com/photo-1593642633279-1796119d5482?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class:"w-32 h-32 object-cover" %>
-        <h3 class="mt-4 font-bold text-yellow-600">Toutes les pratiques</h3>
-        <p>Que ce soit au niveau amateur ou professionnel, pour le loisir ou la compétition.</p>
-      </div>
-      <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center">
-        <%= image_tag "https://images.unsplash.com/photo-1593642633279-1796119d5482?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class:"w-32 h-32 object-cover" %>
-        <h3 class="mt-4 font-bold text-yellow-600">Tous les publics</h3>
-        <p>Petits et grands, hommes et femmes, sport adaptés, sport santé, notre plateforme est ouverte à tous les publics</p>
-      </div>
-      <div class="mb-4 md:mb-0 md:w-1/4 flex flex-col items-center text-center">
-        <%= image_tag "https://images.unsplash.com/photo-1593642633279-1796119d5482?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80", class:"w-32 h-32 object-cover" %>
-        <h3 class="mt-4 font-bold text-yellow-600">Toutes les échelles</h3>
-        <p>Que ce soit au niveau local, national ou international.</p>
-      </div>
-    </div>
-    <%= link_to t("sign_up"), new_user_registration_path, class:'btn btn-primary w-36', style:'justify-content:center;' %>
-  </section>
-</main>
+      <%= link_to t("sign_up"), new_user_registration_path, class:'btn btn-primary w-36', style:'justify-content:center;' %>
+    </section>
+  </main>
 <% end %>
-
