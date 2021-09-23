@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     if params[:search].present? 
-      @pagy, @events = pagy(Event.search_by_description_name_and_sport(params[:search]))
+      @pagy, @events = pagy(Event.search(params[:search]))
     elsif params[:sport].present?
       @pagy, @events = pagy(Event.joins(:sport).where(sports: { name: params[:sport] }))
     elsif params[:admin].present?

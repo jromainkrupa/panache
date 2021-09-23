@@ -19,8 +19,8 @@ class Event < ApplicationRecord
   validate :start_date_after_now
 
   include PgSearch::Model
-  pg_search_scope :search_by_description_name_and_sport, 
-    against: [:description, :name], 
+  pg_search_scope :search, 
+    against: [:description, :name, :postal_code, :city], 
     associated_against: {
       sport: [:name]
     },
