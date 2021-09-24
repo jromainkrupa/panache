@@ -13,6 +13,7 @@ class SportDashboard < Administrate::BaseDashboard
     events: Field::HasMany,
     id: Field::Number,
     name: Field::String,
+    is_highlight: Field::Boolean,
     image_url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -26,6 +27,7 @@ class SportDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
+    is_highlight
     clubs
     events
   ].freeze
@@ -35,6 +37,7 @@ class SportDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     name
+    is_highlight
     image_url
     clubs
     events
@@ -47,6 +50,7 @@ class SportDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
+    is_highlight
     image_url
   ].freeze
 
