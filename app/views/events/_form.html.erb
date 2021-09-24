@@ -52,6 +52,13 @@
     <%= form.collection_select :sport_id, Sport.all(&:name).order(:name),:id, :name %>
   </div>
 
+  <div class="form-group">
+    <%= form.label :event_type, "type" %>
+    <%= form.select :event_type, Event::EVENT_TYPES %>
+  </div>
+
+
+
   <div class="form-group flex justify-between">
     <%= form.button "Créez un évenement", class: "btn btn-primary" %>
 

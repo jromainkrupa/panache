@@ -70,6 +70,13 @@
       <% end %>
     </div>
   <% end %>
+  <% if @event.event_type %>
+    <div class="col-span-2 row-start-2">
+      <h3>Type</h3>
+      <p><%= @event.event_type %></p>
+
+    </div>
+  <% end %>
   <% if current_user && @event.organizer == current_user %>
     <div class="col-span-2 row-start-4">
       <%= link_to 'Supprimer', event_path(@event), method: :delete, class:'bg-red-500 py-2 px-4 rounded text-white font-semibold hover:text-white hover:bg-red-400' %>

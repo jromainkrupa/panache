@@ -30,6 +30,8 @@ class Event < ApplicationRecord
       tsearch: { prefix: true }
     }
   
+  EVENT_TYPES = ["Conférence", "Compétition", "Activité","e-sport"]
+  
  
   def set_club_admin_as_organizer
     if club.present?

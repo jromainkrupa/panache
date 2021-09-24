@@ -30,6 +30,7 @@ class EventDashboard < Administrate::BaseDashboard
     is_free: Field::Boolean,
     user_id: Field::Number,
     website: Field::String,
+    event_type: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -45,6 +46,7 @@ class EventDashboard < Administrate::BaseDashboard
     start_date
     end_date
     city
+    event_type
     
     sponsors
     sport
@@ -72,6 +74,7 @@ class EventDashboard < Administrate::BaseDashboard
     description
     price
     is_free
+    event_type
     user_id
     website
     created_at
@@ -97,6 +100,7 @@ class EventDashboard < Administrate::BaseDashboard
     is_free
     website
     sponsors
+    event_type
   ].freeze
 
   # COLLECTION_FILTERS

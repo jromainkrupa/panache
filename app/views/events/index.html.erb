@@ -13,6 +13,7 @@
       <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :start_date, "Date", class: "text-gray-700" %></button>
       <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :sport, "Sport", class: "text-gray-700" %></button>
       <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :city, "Ville", class: "text-gray-700" %></button>
+      <button class="px-3 pb-5 md:pb-0 uppercase font-bold text-left text-xs"><%= sortable @events, :event_type, "Type", class: "text-gray-700" %></button>
     </div>
   </div>
   <% if @events.any? %>
@@ -21,7 +22,9 @@
         <% @events.each do |event| %>
           <%= link_to event_path(event) do %>
             <div class="h-52 p-4 bg-cover bg-center relative flex items-end text-white shadow rounded-xl" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= event.image_url %>)">
-              <span class="absolute top-0 left-0 ml-4 mt-4 bg-yellow-500 py-2 px-4 font-medium rounded-xl"><%= event.sport.name %></span>
+              <% if event.sport.present? %>
+              <span class="absolute top-0 left-0 ml-4 mt-4 bg-yellow-500 py-2 px-4 font-medium rounded-xl"><%= event.sport&.name %></span>
+              <% end %>
               <div>
                 <h5 class="h4"><%= event.name %></h5>
                 <span><%= format_date_prettify(event.start_date) %> - <%= event.postal_code %> <%= event.city %></span>
