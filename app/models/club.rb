@@ -7,7 +7,7 @@ class Club < ApplicationRecord
   has_one_attached :photo
 
   include PgSearch::Model
-  pg_search_scope :search_by_city_and_name, against: [:city, :name], using: {tsearch: {prefix: true}}
+  pg_search_scope :search_by_city_and_name, against: [:city, :name, :postal_code], using: {tsearch: {prefix: true}}
 
   validates :name, presence: true
   validates :address, presence: true
