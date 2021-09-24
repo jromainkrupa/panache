@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :organizer, class_name: "User", foreign_key: "user_id"
-  belongs_to :sport
+  belongs_to :sport, optional: true
   belongs_to :club, optional: true
   has_one_attached :banner
   has_one_attached :photo
@@ -10,13 +10,13 @@ class Event < ApplicationRecord
   
   validates :name, presence: true
   validates :address, presence: true
-  validates :city, presence: true
-  validates :postal_code, presence: true
+  #validates :city, presence: true
+  #validates :postal_code, presence: true
   validates :start_date, presence: true
   validates :end_date, presence: true
   
   validate :end_date_after_start_date
-  validate :start_date_after_now
+  #validate :start_date_after_now
 
   include PgSearch::Model
   pg_search_scope :search, 

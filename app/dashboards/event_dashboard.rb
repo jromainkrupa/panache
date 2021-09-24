@@ -40,11 +40,14 @@ class EventDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    organizer
+    name
+    start_date
+    end_date
+    city
+    
     sponsors
     sport
     club
-    banner_attachment
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -88,11 +91,9 @@ class EventDashboard < Administrate::BaseDashboard
     start_date
     end_date
     name
-    image_url
     description
     price
     is_free
-    user_id
     website
     sponsors
   ].freeze

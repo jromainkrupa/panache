@@ -11,7 +11,7 @@ class CreateEvents < ActiveRecord::Migration[6.1]
       t.text :description
       t.integer :price
       t.boolean :is_free
-      t.references :sport, null: false, foreign_key: true
+      t.references :sport, null: true, foreign_key: true
       t.references :club, null: true, foreign_key: true
       t.references :user, null: false, foreign_key: true
       t.string :website

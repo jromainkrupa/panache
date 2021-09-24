@@ -20,4 +20,12 @@ class EventPolicy < ApplicationPolicy
       true
     end
   end
+
+  def update?
+    record.organizer == user || user.is_admin?
+  end
+
+  def destroy?
+    record.organizer == user || user.is_admin?
+  end
 end

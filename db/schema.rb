@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2021_09_22_150829) do
     t.text "description"
     t.integer "price"
     t.boolean "is_free"
-    t.bigint "sport_id", null: false
+    t.bigint "sport_id"
     t.bigint "club_id"
     t.bigint "user_id", null: false
     t.string "website"
