@@ -60,20 +60,16 @@
     <h3>Présentation</h3>
     <span><%= @event.description %></span>
   </div>
-  <div class="col-span-2 row-start-2">
-    <h3>Partenaires</h3>
-    <% @event.sponsors.each do |sponsor| %>
-      <%= link_to sponsor.sponsor_url do %>
-        <img src="<%= sponsor.image_url %>" alt="">
+  <% if @event.sponsors.any? %>
+    <div class="col-span-2 row-start-2">
+      <h3>Partenaires</h3>
+      <% @event.sponsors.each do |sponsor| %>
+        <%= link_to sponsor.sponsor_url do %>
+          <img src="<%= sponsor.image_url %>" alt="">
+        <% end %>
       <% end %>
-    <% end %>
-    <!-- 
-    <div class="text-bold">
-      <span class="">Du <%= stringify_date(@event.start_date) %></span>
-      <span class="">au <%= stringify_date(@event.end_date) %></span>
     </div>
-    -->
-  </div>
+  <% end %>
   <% if current_user && @event.organizer == current_user %>
     <div class="col-span-2 row-start-4">
       <%= link_to 'Supprimer', event_path(@event), method: :delete, class:'bg-red-500 py-2 px-4 rounded text-white font-semibold hover:text-white hover:bg-red-400' %>

@@ -18,6 +18,8 @@ class Event < ApplicationRecord
   validate :end_date_after_start_date
   #validate :start_date_after_now
 
+  scope :next_from_now, -> { where("start_date > ?", Time.zone.now.beginning_of_day).order(:start_date) }
+
   include PgSearch::Model
   pg_search_scope :search, 
     against: [:description, :name, :postal_code, :city], 
