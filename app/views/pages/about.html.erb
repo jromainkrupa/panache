@@ -1,3 +1,37 @@
-<div class="container mx-auto mt-8">
-  <h1><%= t(".title") %></h1>
+<div class="container lg:w-2/3 md:w-2/3 px-4 lg:px-0 mx-auto mt-36">
+  <h1 class="mb-10">À propos</h1>
+  <section class="flex flex-col lg:flex-row gap-10">
+    <%= image_tag "https://images.unsplash.com/photo-1613085411234-9c83af5562d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1604&q=80", class:"w-full h-48 lg:h-full lg:w-1/3 object-cover rounded-xl" %>
+    <div>
+      <h2 class="text-3xl mb-4">Le saviez-vous ?</h2>
+      <p class="mb-4">Ces dernières années la France a organisé 17 compétitions internationales et au final, lesquelles avons-nous retenues ?
+        <br>
+        En 2016 par exemple, la France a organisé l’Euro de football. Nous nous souvenons tous du fameux clapping des Finlandais et la cruelle défaite en finale face aux Portugais…
+        Et bien, ce n’était pas le seul événement sportif majeur organisé en France et honnêtement, on ne le savait pas.
+        Et oui, cette année-là, la France a également accueilli :
+      </p>
+      <ul>
+        <li>Les championnats d’Europe de course sur route</li>
+        <li>Les championnats d’Europe de badminton</li>
+        <li>Les championnats du monde d’escalade</li>
+        <li>Les championnats du monde de squash féminin</li>
+      </ul>
+    </div>
+  </section>
+  <section class="flex flex-col-reverse lg:flex-row gap-10 mt-14 lg:items-center lg:mt-10">
+    <div>
+      <h2 class="text-3xl mb-4">A vous de choisir</h2>
+      <p class="mb-4">En matière de sport et d’événements sportifs, nous avons tous nos préférences.
+        Certains préfèrent le basket, d’autres la danse ou encore l’équitation.
+        Le hic, c’est que pour trouver des informations sur les événements de ces différentes disciplines,
+        on doit souvent passer des heures à chercher sur internet et finalement, on laisse tomber.
+      </p>
+      <p>C’est l’une des raisons pour lesquelles, Frank Mbatang, rejoint par Albin et Laurent a décidé Panache, la plateforme qui rassemble en un seul lieu tous les événements sportifs.
+        Avec Panache, il vous suffit de faire une recherche en fonction de votre lieu et tous les événements organisés près de chez vous s’afficheront.
+        Vous aurez donc accès à vos événements préférés s’ils sont référencés chez nous.
+        Cela vous permettra également de (re)découvrir de nouveaux sports et d’être libre de choisir ce que vous voulez voir.
+      </p>
+    </div>
+    <%= image_tag "https://images.unsplash.com/photo-1536639070539-43ec572aca6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80", class:"w-full h-48 lg:h-full lg:w-1/3 object-cover rounded-xl" %>
+  </section>
 </div>
