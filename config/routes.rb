@@ -5,8 +5,10 @@ Rails.application.routes.draw do
       resources :clubs
       resources :events
       resources :sponsors
+      resources :stats, only: [:index]
 
-      root to: "users#index"
+
+      root to: "stats#index"
     end
   root to: "pages#home"
 
