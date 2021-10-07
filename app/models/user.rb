@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_one :club, dependent: :destroy
   has_many :events, through: :club
+  has_many :events
   has_one_attached :avatar
 
   def full_name
