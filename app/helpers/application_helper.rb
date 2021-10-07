@@ -1,6 +1,10 @@
 module ApplicationHelper
   include Pagy::Frontend
 
+  # def pagy_nav(pagy)
+  #   render 'shared/nav.html.erb'
+  # end
+
   def render_svg(name, options = {})
     options[:title] ||= name.underscore.humanize
     options[:aria] = true

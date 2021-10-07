@@ -162,7 +162,7 @@
 #
 # load the "de", "en" and "es" built-in locales:
 # (the first passed :locale will be used also as the default_locale)
-# Pagy::I18n.load({locale: 'de'},
+Pagy::I18n.load({locale: 'fr'})
 #                 {locale: 'en'},
 #                 {locale: 'es'})
 #
@@ -182,5 +182,5 @@
 # require 'pagy/extras/i18n'
 
 # Default i18n key
-# Pagy::VARS[:i18n_key] = 'pagy.item_name'   # default
+# Pagy::VARS[:i18n_key] = 'toto'   # default
 Pagy::VARS[:items] = 21

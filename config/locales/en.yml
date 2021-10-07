@@ -32,6 +32,9 @@
 # https://mikerogers.io/2016/01/10/i18n-rails-internationalisation-i18n-cheatsheet.html
 
 en:
+  clubs:
+    edit:
+      action: "toto"
   hello: "Hello world"
 
   something_went_wrong: "Something went wrong"

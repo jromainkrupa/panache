@@ -7,6 +7,11 @@
   </div>
 
   <div class="form-group">
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, as: :text, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :address, "Adresse" %>
     <%= form.text_field :address, value: @club&.address, class: "form-control" %>
   </div>

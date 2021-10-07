@@ -53,12 +53,6 @@
     <% end %>
 
   <% else %>
-    <div class="bg-white rounded shadow flex flex-col items-center justify-between p-8 lg:flex-row">
-      <%= image_tag "empty.svg", class: "mb-4 lg:w-1/2" %>
-      <div class="flex-1 text-center">
-        <p class="h3 mb-4">Create your first Clubs</p>
-        <%= link_to t("shared.scaffold.new.title", model: "Clubs"), new_club_path, class: "btn btn-primary" %>
-      </div>
-    </div>
+    <span class="pl-4">Désolé aucun club ne correspond à votre recherche</span>
   <% end %>
 </div>
