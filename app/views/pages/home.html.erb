@@ -21,7 +21,7 @@
             <%= render "shared/left_nav" %>
           </div>
           <div>
-            <%= nav_link_to "Évènements", events_path, class: 'nav-link' %>
+            <%= nav_link_to "événements", events_path, class: 'nav-link' %>
             <%= nav_link_to "Clubs", clubs_path, class: 'nav-link' %>
             <% if user_signed_in? %>
               <!-- Mobile menu -->
@@ -117,7 +117,7 @@
     <div class="bg-yellow-500 right-0 left-0 h-28 -bottom-10 absolute" style="transform: skewY(-2deg); z-index: -20;"></div>
   </section>
   <section class="flex flex-col container mx-auto p-4">
-    <h2 class="my-4 text-3xl">Les prochains évènements</h2>
+    <h2 class="my-4 text-3xl">Les prochains événements</h2>
     <div role="list" class="grid md:grid-cols-2 gap-x-4 gap-y-2 lg:gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-8">
       <% @events.each do |event| %>
         <%= link_to event_path(event) do %>

@@ -1,5 +1,5 @@
 <div class="container mx-auto mb-8 mt-36 px-4">
-  <h1 class="my-4 text-3xl">Tous les évènements</h1>
+  <h1 class="my-4 text-3xl">Tous les événements</h1>
   <div class="flex flex-col md:flex-row md:items-center md:gap-2">
     <%= form_with(model: Event, url: events_path, method: :get, class:"w-full md:w-2/3 lg:w-1/3 mb-2 md:mb-4 md:mt-4 sm:flex sm:items-center relative") do |f| %>
       <%= f.text_field :search, label: false,
@@ -47,7 +47,7 @@
       </div>
     <% end %>
   <% else %>
-    <span class="pl-4">Désolé aucun évènement ne correspond à votre recherche</span>
+    <span class="pl-4">Désolé aucun événement ne correspond à votre recherche</span>
 
   <% end %>
 </div>

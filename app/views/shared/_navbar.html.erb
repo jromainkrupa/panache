@@ -73,14 +73,14 @@
                     <% if current_user.club.present? %>
                       <%= link_to "Mon club", club_path(current_user.club), class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
                       <%= link_to "Modifier mon club", edit_club_path(current_user.club), class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
-                      <%= link_to "Créer un évènement", new_event_path(club: current_user.club), class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
+                      <%= link_to "Créer un événement", new_event_path(club: current_user.club), class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
                     <% else %>
                       <%= link_to "Créer un club", new_club_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
-                      <%= link_to "Créer un évènement", new_event_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
+                      <%= link_to "Créer un événement", new_event_path, class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
                     <% end %>
 
                     <% if current_user.events.any? %>
-                      <%= link_to "Mes évènements", events_path(admin: current_user.first_name), class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
+                      <%= link_to "Mes événements", events_path(admin: current_user.first_name), class: 'no-underline block px-6 py-3 text-gray-800 bg-white hover:bg-primary-100 transition ease-in-out duration-200 whitespace-nowrap' %>
                     <% end %>
 
                       <% if current_user.is_admin? %>
