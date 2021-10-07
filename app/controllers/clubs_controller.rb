@@ -43,7 +43,7 @@ class ClubsController < ApplicationController
 
     respond_to do |format|
       if @club.save
-        format.html { redirect_to @club, notice: "Club was successfully created." }
+        format.html { redirect_to @club, notice: "Le club a été crée avec succès." }
         format.json { render :show, status: :created, location: @club }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class ClubsController < ApplicationController
 
     respond_to do |format|
       if @club.update(club_params)
-        format.html { redirect_to @club, notice: "Club was successfully updated." }
+        format.html { redirect_to @club, notice: "Le club a été correctement modifié." }
         format.json { render :show, status: :ok, location: @club }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -73,7 +73,7 @@ class ClubsController < ApplicationController
 
     @club.destroy
     respond_to do |format|
-      format.html { redirect_to clubs_url, notice: "Club was successfully destroyed." }
+      format.html { redirect_to clubs_url, notice: "Le club a été supprimé." }
       format.json { head :no_content }
     end
   end
