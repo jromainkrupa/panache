@@ -14,3 +14,6 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import "stylesheets/application"; // 👈 add this little boy
+
+require("trix")
+require("@rails/actiontext")

@@ -13,6 +13,7 @@ class Club < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :postal_code, presence: true
+  has_rich_text :number_key
 
   after_create :set_user_as_club_admin
 
