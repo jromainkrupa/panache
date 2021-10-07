@@ -26,12 +26,15 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @club = Club.find(params[:club_id]) if params[:club_id].present?
+    @club ||= @event
     
     authorize @event 
   end
 
   # GET /events/1/edit
   def edit
+    @club = Club.find(params[:club_id]) if params[:club_id].present?
+    @club ||= @event
     authorize @event
   end
 
