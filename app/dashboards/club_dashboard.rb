@@ -26,7 +26,7 @@ class ClubDashboard < Administrate::BaseDashboard
     facebook_url: Field::String,
     twitter_url: Field::String,
     instagram_url: Field::String,
-    key_number: Field::Text,
+    number_key: TrixField,
     description: Field::Text,
     information: Field::Text,
     phone_number: Field::String,
@@ -62,6 +62,7 @@ class ClubDashboard < Administrate::BaseDashboard
     twitter_url
     instagram_url
     key_number
+    number_key
     description
     information
     phone_number
@@ -86,6 +87,7 @@ class ClubDashboard < Administrate::BaseDashboard
     twitter_url
     instagram_url
     key_number
+    number_key
     description
     information
     phone_number
