@@ -12,7 +12,7 @@
 <% end -%>
 
 <%- if devise_mapping.recoverable? && controller_name != "passwords" && controller_name != "registrations" %>
-  <%= link_to t(".forgot_your_password"), new_password_path(resource_name), class: "block text-sm font-semibold mt-2 text-yellow-700" %>
+  <%= link_to "Mot de passe oublié ?", new_password_path(resource_name), class: "block text-sm font-semibold mt-2 text-yellow-700" %>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != "confirmations" %>

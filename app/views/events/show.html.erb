@@ -1,4 +1,12 @@
-<header class="pt-56 lg:pt-72 pb-24 lg:pb-14 px-4 md:px-0 h4 bg-cover bg-center flex items-center mt:justify-center text-white shadow z-0" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @event.banner.attached? ? cl_image_path(@event.banner.key) : @event.sport.image_url %>)">
+<header class="pt-56 lg:pt-72 pb-24 lg:pb-14 px-4 md:px-0 h4 bg-cover bg-center flex items-center mt:justify-center text-white shadow z-0" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(
+          <% if @event.banner.attached? %>
+            <%= cl_image_path(@event.banner.key) %>
+          <% elsif @event.image_url.present? %>
+            <%= @event.image_url %>
+          <% else %>
+            <%= @event&.sport&.image_url %>
+          <% end %>)">
+
     <div class="md:w-2/3 md:mx-auto">
       <h1 class="h2 mb-2"><%= @event.name %></h1>
       <span class="font-bold"><%= format_date_prettify(@event.start_date) %></span><span class="font-normal"> | <%= @event.postal_code %> <%= @event.city %></span>
