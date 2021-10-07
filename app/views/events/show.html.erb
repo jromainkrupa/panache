@@ -86,7 +86,7 @@
       <% end %>
     </div>
   <% end %>
-  <% if @event.event_type %>
+  <% if @event.event_type.present? %>
     <div class="col-span-2 row-start-2">
       <h3>Type</h3>
       <p><%= @event.event_type %></p>
