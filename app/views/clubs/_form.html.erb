@@ -75,9 +75,9 @@
     </div>
   </div>
   <div class="form-group flex justify-between">
-    <%= form.button class: "btn btn-primary" %>
+    <%= form.button "Créer le club", class: "btn btn-primary" %>
     <% if form.object.persisted? %>
-      <%= link_to t("delete"), form.object, class: "btn btn-danger outline", method: :delete, data: { confirm: t("are_you_sure") } %>
+      <%= link_to "détruire", form.object, class: "btn btn-danger outline", method: :delete, data: { confirm: t("are_you_sure") } %>
     <% end %>
   </div>
 <% end %>
