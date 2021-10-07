@@ -24,6 +24,9 @@
           <div class="h-44 bg-cover bg-white bg-center relative flex text-black shadow rounded-xl overflow-hidden">
             <% if club.photo.present? %>
               <%= cl_image_tag club.photo.key, class:"w-56 object-cover" %>
+            <% else %>
+            <%= image_tag club.sports.first.image_url, class:"w-56 object-cover" %>
+            
             <% end %>
             <%#= image_tag "https://images.unsplash.com/photo-1630412500200-728764552dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3334&q=80", class:"w-56 object-cover" %>
             <div class="flex flex-col justify-between items-start py-4 pl-6 pr-6">

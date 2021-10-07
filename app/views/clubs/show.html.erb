@@ -1,4 +1,4 @@
-<header class="pt-56 lg:pt-72 pb-24 lg:pb-14 px-4 md:px-0 h4 bg-cover bg-center flex items-center mt:justify-center text-white shadow z-0" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @club.banner.attached? ? cl_image_path(@club.banner.key) : "" %>)">
+<header class="pt-56 lg:pt-72 pb-24 lg:pb-14 px-4 md:px-0 h4 bg-cover bg-center flex items-center mt:justify-center text-white shadow z-0" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @club.banner.attached? ? cl_image_path(@club.banner.key) : @club.sports.first.image_url %>)">
     <div class="md:w-2/3 md:mx-auto">
       <h1 class="h2 mb-4"><%= @club.name %></h1>
       <span class="font-bold text-white bg-yellow-500 rounded-lg py-2 px-4 mb-4"><%= @club.sports.map { |sport| sport.name }.join(' ') %></span>
