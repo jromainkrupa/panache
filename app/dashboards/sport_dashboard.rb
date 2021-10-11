@@ -28,6 +28,7 @@ class SportDashboard < Administrate::BaseDashboard
     id
     name
     is_highlight
+    image_url
     clubs
     events
   ].freeze
