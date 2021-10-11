@@ -61,7 +61,6 @@ class ClubDashboard < Administrate::BaseDashboard
     facebook_url
     twitter_url
     instagram_url
-    key_number
     number_key
     description
     information
@@ -86,7 +85,6 @@ class ClubDashboard < Administrate::BaseDashboard
     facebook_url
     twitter_url
     instagram_url
-    key_number
     number_key
     description
     information
