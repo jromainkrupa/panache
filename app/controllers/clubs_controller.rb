@@ -37,12 +37,14 @@ class ClubsController < ApplicationController
     @user    = current_user
     @user.update(is_club_admin: true)
     @club = Club.new(club_params)
+    @sport = Sport.find(params[:club][:sport_id][0])
     @club.admin = @user
-
+    
     authorize @club
-
+    
     respond_to do |format|
       if @club.save
+        @club_sport = ClubSport.create(sport: @sport, club: @club)
         format.html { redirect_to @club, notice: "Le club a été crée avec succès." }
         format.json { render :show, status: :created, location: @club }
       else
