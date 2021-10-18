@@ -32,6 +32,10 @@
 # https://mikerogers.io/2016/01/10/i18n-rails-internationalisation-i18n-cheatsheet.html
 
 fr:
+  helpers:
+    label:
+      club: #nom du modèle
+        information: "toto"
   activerecord:
     models:
       user: "Utilisateur"

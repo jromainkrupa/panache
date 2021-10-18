@@ -373,6 +373,9 @@ en:
               cannot_be_removed: "role cannot be removed for the account owner"
 
   helpers:
+    label:
+      club: #nom du modèle
+        information: Bon à savoir
     placeholder:
       account_invitation:
         name: "Full name"
